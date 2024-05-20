@@ -135,6 +135,22 @@ select {
 }
 
 /* Modals */
+
+#contact_modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    /* left: 0%;
+    top: 25%; */
+    height: 100vh;
+    width: 100%;
+    overflow: auto;
+    /* backdrop-filter: blur(10px); */
+
+    display: flex; /* Utilisation de flexbox pour le centrage */
+    align-items: center; /* Centrage vertical */
+    justify-content: center; /* Centrage horizontal */
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -158,6 +174,8 @@ select {
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: relative;
+    z-index: 10;
 }
 
 .modal header {
