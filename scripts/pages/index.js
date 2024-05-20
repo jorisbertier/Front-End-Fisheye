@@ -8,7 +8,7 @@
             let data = await response.json()
             photographers = data['photographers']
         } catch(error) {
-            console.log('Error gettins datas photographers', error)
+            console.log('Error gettings datas photographers', error)
         }
 
 
@@ -19,14 +19,6 @@
         return ({
             photographers: [...photographers]})
     }
-
-
-
-
-
-
-
-
 
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
