@@ -24,6 +24,17 @@
         <img src="/assets/photographers/MimiKeel.jpg" class="main__picture--img" />
       </div>
     </main>
+
+    <section>
+      <label for="sort" class="sort">Trier par</label>
+      <select id="sort" name="sort">
+        <option value="popularity">Popularité</option>
+        <option value="date">Date</option>
+        <option value="title">Titre</option>
+      </select>
+    </section>
+
+
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -39,6 +50,9 @@
 				</form>
 			</div>
 		</div>
+
+
+
     <script src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
