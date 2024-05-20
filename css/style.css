@@ -42,9 +42,46 @@ h1 {
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    height: 10px;
 }
 
 .photographer_section article img {
     height: 200px;
     width: 200px;
+}
+
+.wrapper__photographers--img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.wrapper__photographers--second-title {
+    font-family: DM Sans;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.93px;
+    text-align: center;
+    color: #D3573C;
+    height: 2px;
+    margin-top: 5px;
+}
+
+.wrapper__photographers--content {
+    font-family: DM Sans;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 13.02px;
+    text-align: center;
+    height: 0;
+    margin-top: 5px;
+}
+
+.wrapper__photographers--span {
+    font-family: DM Sans;
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 11.72px;
+    text-align: center;
+    height: 0;
+    margin-top: 5px;
 }

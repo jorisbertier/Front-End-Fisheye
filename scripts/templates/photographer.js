@@ -15,6 +15,14 @@ function photographerTemplate(data) {
         const span = document.createElement('span')
 
         img.setAttribute("src", picture)
+        article.classList.add('wrapper__photographers')
+        img.classList.add('wrapper__photographers--img')
+        h2.classList.add('wrapper__photographers--title')
+        h3.classList.add('wrapper__photographers--second-title')
+        p.classList.add('wrapper__photographers--content')
+        span.classList.add('wrapper__photographers--span')
+
+
         h2.textContent = name;
         h3.innerText = `${city}, ${country}`
         p.innerText = `${tagline}`
