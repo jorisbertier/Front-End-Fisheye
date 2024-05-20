@@ -50,6 +50,12 @@ h1 {
     width: 200px;
 }
 
+.wrapper__photographers--link {
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .wrapper__photographers--img {
     border-radius: 50%;
     object-fit: cover;
