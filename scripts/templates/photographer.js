@@ -1,3 +1,6 @@
+
+
+
 function photographerTemplate(data) {
     const { name, portrait } = data;
 
