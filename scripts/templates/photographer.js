@@ -13,8 +13,10 @@ function photographerTemplate(data) {
         const h3 = document.createElement('h3')
         const p = document.createElement('p')
         const span = document.createElement('span')
+        const alt = document.createElement('alt')
 
         img.setAttribute("src", picture)
+        img.setAttribute("alt", `Profil picture ${name}`)
         article.classList.add('wrapper__photographers')
         img.classList.add('wrapper__photographers--img')
         h2.classList.add('wrapper__photographers--title')
