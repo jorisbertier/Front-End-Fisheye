@@ -109,13 +109,16 @@ select {
     line-height: 31.25px;
     color: #901C1C;
 }
+
 .wrapper__media--content--like--p {
     font-family: DM Sans;
     font-size: 24px;
     font-weight: 500;
     line-height: 31.25px;
+    color: #901C1C;
     
 }
+
 .wrapper__media--content--like--icon {
     font-family: DM Sans;
     font-size: 24px;
