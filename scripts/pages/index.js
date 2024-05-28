@@ -11,9 +11,9 @@
             console.log('Error gettings datas photographers', error)
         }
 
-        for (let i = 0;  i < photographers.length; i++ ) {
-            console.log(photographers[i].name)
-        }
+        // for (let i = 0;  i < photographers.length; i++ ) {
+        //     console.log(photographers[i].name)
+        // }
 
         return ({
             photographers: [...photographers]})
