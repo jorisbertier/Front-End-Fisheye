@@ -25,7 +25,24 @@ async function getPhotographers() {
 async function getPhotographerByid() {
     const { photographers } = await getPhotographers();
     let photographer = photographers.find((photographer) => photographer.id === idPhotographer)
-    console.log(photographer)
+    console.log(photographer.name)
+
+    let name = document.querySelector('.main__content--title')
+    let city = document.querySelector('.main__content--subtitle')
+    let tagline = document.querySelector('.main__content--subtitle-text')
+    let price = document.querySelector('.wrapper__fixed--price')
+    let portrait = document.querySelector('.main__picture--img')
+    name.innerText = photographer.name
+    city.innerText = `${photographer.city}, ${photographer.country}`
+    tagline.innerText = photographer.tagline
+    portrait.setAttribute('src', `/assets/photographers/${photographer.portrait}`)
+    price.innerText = `${photographer.price}€ / jour`
 }
 
+// async function addInformationPhotgraphers() {
+
+// }
+
 getPhotographerByid()
+
+// addInformationPhotgraphers()

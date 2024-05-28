@@ -24,6 +24,37 @@ h1 {
     margin-left: 100px;
 }
 
+.fixed {
+    background-color: #DB8876;
+    padding: 10px;
+    width: 450px;
+    height: 60px;
+    position: fixed;
+    bottom: 0px;
+    right: 40px;
+    z-index: 1000;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.wrapper__fixed {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wrapper__fixed--title {
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.wrapper__fixed--price {
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 700;
+}
+
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
