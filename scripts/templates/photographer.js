@@ -7,9 +7,9 @@ function photographerTemplate(data) {
     const picture = `assets/photographers/${portrait}`;
 
     function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        const h2 = document.createElement( 'h2' );
+        const article = document.createElement('article');
+        const img = document.createElement('img');
+        const h2 = document.createElement('h2');
         const h3 = document.createElement('h3')
         const p = document.createElement('p')
         const span = document.createElement('span')
@@ -17,7 +17,7 @@ function photographerTemplate(data) {
         const a = document.createElement('a')
 
         img.setAttribute("src", picture)
-        img.setAttribute("alt", `Profil picture ${name}`)
+        img.setAttribute("alt", `Profile picture ${name}`)
         a.setAttribute('href', 'photographer.html')
         article.classList.add('wrapper__photographers')
         a.classList.add('wrapper__photographers--link')
@@ -26,8 +26,6 @@ function photographerTemplate(data) {
         h3.classList.add('wrapper__photographers--second-title')
         p.classList.add('wrapper__photographers--content')
         span.classList.add('wrapper__photographers--span')
-
-
 
         h2.textContent = name;
         h3.innerText = `${city}, ${country}`

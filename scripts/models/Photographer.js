@@ -1,6 +1,6 @@
-class photographers {
+class Photographer {
     constructor(data) {
-        this.id  = data.id,
+        this.id = data.id,
         this.name = data.name,
         this.city = data.city,
         this.country = data.country,
