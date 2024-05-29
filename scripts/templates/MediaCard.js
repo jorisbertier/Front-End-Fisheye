@@ -6,7 +6,6 @@ class MediaCard {
 
     createCardMedia() {
         const {id, photographerId, title, likes, date, price} = this.data
-        console.log(this.media)
         let mediaSrc;
 
         if(this.data.image) {
@@ -19,7 +18,7 @@ class MediaCard {
         else if(this.data.video) {
             mediaSrc =
             `
-            <video class="rounded wrapper__media--img" tabindex="-1" width="100%" height="100%" aria-label="">
+            <video class="rounded wrapper__media--img" controls tabindex="-1" width="100%" height="100%" aria-label="">
                 <source src="assets/medias/${this.data.video}"  type="video/mp4">
             </video>
             `
