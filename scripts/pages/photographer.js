@@ -61,8 +61,15 @@ async function getMediasByPhotographer() {
 
     allMediasByPhotographer.forEach((media) => {
         const section = document.querySelector('.section__media')
+        let mediaCard;
+        
+        if(media.image) {
+            mediaCard = new MediaPhotographer(media, 'image')
 
-        const mediaCard = new MediaPhotographer(media)
+        } else if (media.video) {
+            mediaCard = new MediaPhotographer(media, 'video')
+        }
+
         const mediaCardDOMmedia = mediaCard.createCardMedia()
         section.appendChild(mediaCardDOMmedia)
 

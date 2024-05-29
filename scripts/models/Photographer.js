@@ -12,7 +12,7 @@ class Photographer {
     }
 
     getUserCardDOM() {
-        let photographerCard = new PhotographerCard(this)
+        let photographerCard = new PhotographerCard()
         return photographerCard.createCard()
     }
 }
