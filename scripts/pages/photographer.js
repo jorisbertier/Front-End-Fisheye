@@ -1,3 +1,4 @@
+import { MediaPhotographer } from "../templates/MediaPhotographer.js";
 //Mettre le code JavaScript lié à la page photographer.html
 // given url string
 // get url string current
@@ -60,53 +61,11 @@ async function getMediasByPhotographer() {
 
     allMediasByPhotographer.forEach((media) => {
         const section = document.querySelector('.section__media')
-        const article = document.createElement("article");
-        const img = document.createElement("img");
-        const div = document.createElement("div");
-        const div2 = document.createElement("div");
-        const a = document.createElement("a");
-        const h3 = document.createElement("h3");
-        const p = document.createElement("p");
-        const span = document.createElement("span");
-        const video = document.createElement('video')
-        const source = document.createElement('source')
 
-        article.classList.add('wrapper__media')
-        a.setAttribute('src', '#')
-        img.classList.add('wrapper__media--img')
-        div.classList.add('wrapper__media--content')
-        h3.classList.add('wrapper__media--content--title')
-        div2.classList.add('wrapper__media--content--like')
-        p.classList.add('wrapper__media--content--like--p')
-        span.classList.add('wrapper__media--content--like--icon')
-    
+        const mediaCard = new MediaPhotographer(media)
+        const mediaCardDOMmedia = mediaCard.createCardMedia()
+        section.appendChild(mediaCardDOMmedia)
 
-        section.appendChild(article);
-        article.appendChild(a);
-            
-        article.appendChild(div);
-            div.appendChild(h3);
-            div.appendChild(div2);
-                div2.appendChild(p);
-                div2.appendChild(span);
-        
-
-        if (media.title) {
-            a.appendChild(img)
-            img.setAttribute('src', `/assets/medias/${media.image}`)
-            console.log(media.image)
-        } else if (media.video){
-            a.appendChild(video)
-            video.appendChild(source)
-            source.setAttribute('src', `/assets/medias/${media.video}`)
-            console.log('1video')
-        }
-        
-        h3.innerText = media.title
-        p.innerText = media.likes
-        span.innerText = "♥"
-        console.log(media)
-        
 });
     
     

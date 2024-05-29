@@ -1,6 +1,20 @@
+import { MediaPhotographer } from "../templates/MediaPhotographer"
+
 class Media {
     constructor(data) {
         this.id = data.id
-        this.photographerId
+        this.photographerId = data.photographerId
+        this.title = data.title
+        this.image = data.image
+        this.video = data.video
+        this.likes = data.likes
+        this.date = data.date
+        this.price = data.price
+    }
+    createCardMedia() {
+        let cardMedia = new MediaPhotographer()
+        return cardMedia.createCardMedia()
     }
 }
+
+export { Media }
