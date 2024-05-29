@@ -1,4 +1,4 @@
-import { MediaPhotographer } from "../templates/MediaPhotographer"
+import { MediaCard } from "../templates/MediaCard"
 
 class Media {
     constructor(data) {
@@ -10,7 +10,7 @@ class Media {
         this.price = data.price
     }
     createCardMedia() {
-        let cardMedia = new MediaPhotographer()
+        let cardMedia = new MediaCard()
         return cardMedia.createCardMedia()
     }
 }

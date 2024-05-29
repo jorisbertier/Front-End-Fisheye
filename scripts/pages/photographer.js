@@ -1,4 +1,4 @@
-import { MediaPhotographer } from "../templates/MediaPhotographer.js";
+import { MediaCard } from "../templates/MediaCard.js";
 //Mettre le code JavaScript lié à la page photographer.html
 // given url string
 // get url string current
@@ -62,12 +62,12 @@ async function getMediasByPhotographer() {
     allMediasByPhotographer.forEach((media) => {
         const section = document.querySelector('.section__media')
         let mediaCard;
-        
+
         if(media.image) {
-            mediaCard = new MediaPhotographer(media, 'image')
+            mediaCard = new MediaCard(media, 'image')
 
         } else if (media.video) {
-            mediaCard = new MediaPhotographer(media, 'video')
+            mediaCard = new MediaCard(media, 'video')
         }
 
         const mediaCardDOMmedia = mediaCard.createCardMedia()

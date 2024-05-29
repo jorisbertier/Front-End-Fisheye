@@ -1,4 +1,4 @@
-class MediaPhotographer {
+class MediaCard {
     constructor(data, media) {
         this.data = data
         this.media = media
@@ -43,4 +43,4 @@ class MediaPhotographer {
     }
 }
 
-export { MediaPhotographer }
+export { MediaCard }
