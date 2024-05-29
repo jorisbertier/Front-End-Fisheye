@@ -1,9 +1,14 @@
-function photographerTemplate(data) {
-    const {id, name, portrait, city, country, tagline, price } = data;
+class PhotographerCard {
 
-    const picture = `assets/photographers/${portrait}`;
+    constructor(data) {
+        this.data = data
+    }
+
+    createCard() {
+        const {id, name, portrait, city, country, tagline, price } = this.data;
+
+        const picture = `assets/photographers/${portrait}`;
     
-    function getUserCardDOM() {
         const template = document.createElement('template');
         template.innerHTML =
         `
@@ -18,9 +23,8 @@ function photographerTemplate(data) {
         </article>
         `;
         return template.content.cloneNode(true);
-        // return template.content.firstChild;
-        // return sectionPhotographer.textContent.firstChild
     }
-
-    return { name, picture, getUserCardDOM }
+    
 }
+
+export { PhotographerCard };
