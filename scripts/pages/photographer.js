@@ -68,6 +68,8 @@ async function getMediasByPhotographer() {
         const h3 = document.createElement("h3");
         const p = document.createElement("p");
         const span = document.createElement("span");
+        const video = document.createElement('video')
+        const source = document.createElement('source')
 
         article.classList.add('wrapper__media')
         a.setAttribute('src', '#')
@@ -81,17 +83,28 @@ async function getMediasByPhotographer() {
 
         section.appendChild(article);
         article.appendChild(a);
-            a.appendChild(img),
-        article.appendChild(div),
-            div.appendChild(h3),
-            div.appendChild(div2),
-                div2.appendChild(p),
-                div2.appendChild(span),
+            
+        article.appendChild(div);
+            div.appendChild(h3);
+            div.appendChild(div2);
+                div2.appendChild(p);
+                div2.appendChild(span);
         
-        img.setAttribute('src', `/assets/medias/${media.image}`)
+
+        if (media.title) {
+            a.appendChild(img)
+            img.setAttribute('src', `/assets/medias/${media.image}`)
+            console.log(media.image)
+        } else if (media.video){
+            a.appendChild(video)
+            video.appendChild(source)
+            source.setAttribute('src', `/assets/medias/${media.video}`)
+            console.log('1video')
+        }
+        
         h3.innerText = media.title
         p.innerText = media.likes
-        span.innerText = "ok"
+        span.innerText = "♥"
         console.log(media)
         
 });
