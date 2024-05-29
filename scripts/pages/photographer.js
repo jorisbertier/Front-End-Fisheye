@@ -50,6 +50,7 @@ async function getPhotographerByid() {
     city.innerText = `${photographer.city}, ${photographer.country}`
     tagline.innerText = photographer.tagline
     portrait.setAttribute('src', `/assets/photographers/${photographer.portrait}`)
+    portrait.setAttribute('alt', `Profile picture ${photographer.name}`)
     price.innerText = `${photographer.price}€ / jour`
 }
 
