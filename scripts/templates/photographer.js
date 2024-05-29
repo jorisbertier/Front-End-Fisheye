@@ -1,42 +1,26 @@
-
-
-
 function photographerTemplate(data) {
     const {id, name, portrait, city, country, tagline, price } = data;
 
     const picture = `assets/photographers/${portrait}`;
-
+    
     function getUserCardDOM() {
-        const article = document.createElement('article');
-        const img = document.createElement('img');
-        const h2 = document.createElement('h2');
-        const h3 = document.createElement('h3')
-        const p = document.createElement('p')
-        const span = document.createElement('span')
-        const a = document.createElement('a')
-
-        img.setAttribute("src", picture)
-        img.setAttribute("alt", `Profile picture ${name}`)
-        a.setAttribute('href', `photographer.html?id=${id}`)
-        article.classList.add('wrapper__photographers')
-        a.classList.add('wrapper__photographers--link')
-        img.classList.add('wrapper__photographers--img')
-        h2.classList.add('wrapper__photographers--title')
-        h3.classList.add('wrapper__photographers--second-title')
-        p.classList.add('wrapper__photographers--content')
-        span.classList.add('wrapper__photographers--span')
-
-        h2.textContent = name;
-        h3.innerText = `${city}, ${country}`
-        p.innerText = `${tagline}`
-        span.innerText = `${price}€/jour`
-        article.appendChild(a)
-            a.appendChild(img)
-            a.appendChild(h2)
-        article.appendChild(h3)
-        article.appendChild(p)
-        article.appendChild(span)
-        return (article);
+        const template = document.createElement('template');
+        template.innerHTML =
+        `
+        <article class="wrapper__photographers">
+            <a href="photographer.html?id=${id}" class="wrapper__photographers--link">
+                <img src="${picture}" alt="Profile picture ${name}" class="wrapper__photographers--img"/>
+                <h2 class="wrapper__photographers--title">${name}</h2>
+            </a>
+            <h3 class="wrapper__photographers--second-title">${city}, ${country}</h3>
+            <p class="wrapper__photographers--content">${tagline}</p>
+            <span class="wrapper__photographers--span">${price}€/jour</span>
+        </article>
+        `;
+        return template.content.cloneNode(true);
+        // return template.content.firstChild;
+        // return sectionPhotographer.textContent.firstChild
     }
+
     return { name, picture, getUserCardDOM }
 }
