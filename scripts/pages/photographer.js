@@ -58,7 +58,6 @@ async function getMediasByPhotographer() {
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
 
-
     allMediasByPhotographer.forEach((media) => {
         const section = document.querySelector('.section__media')
         let mediaCard;

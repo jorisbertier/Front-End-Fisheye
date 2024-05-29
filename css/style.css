@@ -123,3 +123,12 @@ h1 {
     height: 0;
     margin-top: 5px;
 }
+
+.wrapper__media--content--title {
+    font-size:20px;
+}
+
+.wrapper__media--content--like-icon {
+    font-size: 29px;
+    color: #901C1C;
+}

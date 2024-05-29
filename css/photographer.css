@@ -95,6 +95,7 @@ select {
     gap: 0px;
     opacity: 0px;
     object-fit: cover;
+    border-radius: 7px;
 }
 
 .wrapper__media--content {
