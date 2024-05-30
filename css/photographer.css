@@ -1,5 +1,6 @@
 #contact_modal {
     display: none;
+    margin-top: 324px;
 }
 
 #main {
@@ -146,11 +147,14 @@ select {
     height: 100vh;
     width: 100%;
     overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
     /* backdrop-filter: blur(10px); */
-
-    display: flex; /* Utilisation de flexbox pour le centrage */
-    align-items: center; /* Centrage vertical */
-    justify-content: center; /* Centrage horizontal */
+    margin-top: 200px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 90px;
 }
 .contact_button {
     font-size: 20px;
@@ -177,6 +181,7 @@ select {
     margin: auto;
     position: relative;
     z-index: 10;
+    height: 90%;
 }
 
 .modal header {
@@ -216,7 +221,7 @@ form div {
 
 form input {
     width: 100%;
-    height: 60px;
+    height: 46px;
     border: none;
     border-radius: 5px;
 }

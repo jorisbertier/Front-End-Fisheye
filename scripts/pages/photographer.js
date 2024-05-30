@@ -65,7 +65,7 @@ async function getMediasByPhotographer() {
 
         if(media.image) {
             mediaCard = new MediaCard(media, 'image')
-        } else if (media.video) {
+        } else if(media.video) {
             mediaCard = new MediaCard(media, 'video')
         } else {
             throw 'Unknown type format'
@@ -81,5 +81,3 @@ async function getMediasByPhotographer() {
 
 getMediasByPhotographer()
 getPhotographerByid()
-
-// addInformationPhotgraphers()
