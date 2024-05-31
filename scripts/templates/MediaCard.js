@@ -7,12 +7,12 @@ class MediaCard {
     createCardMedia() {
         const {id, photographerId, title, likes, date, price} = this.data
         let mediaSrc;
+        let mediaUrl;
 
         if(this.data.image) {
+            mediaUrl = `/assets/medias/${this.data.image}`;
             mediaSrc = `
-            <a href="#">
-                <img src="/assets/medias/${this.data.image}" class="wrapper__media--img" alt="${title}"/>
-            </a>
+                <img src="/assets/medias/${this.data.image}" class="wrapper__media--img" alt="${title}" data-url="${mediaUrl}"/>
             `
         }
         else if(this.data.video) {

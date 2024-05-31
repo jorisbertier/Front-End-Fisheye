@@ -73,7 +73,25 @@
     <section class="section__media">
     </section>
 
+    <button class="lightbox" onclick="displaylightBox()">Lightbox</button>
+    <div id="lightbox_modal" class="lightbox-modal">
+      <div class="lightbox-content">
+          <div class="lightbox-navigation lightbox-navigation-left">
+              <span class="lightbox-arrow">&lt;</span>
+          </div>
+          <div class="lightbox-media-container">
+              <img src="" class="lightbox-media" alt="Description de votre image">
+          </div>
+          <div class="lightbox-navigation lightbox-navigation-right">
+              <span class="lightbox-arrow">&gt;</span>
+          </div>
+          <span class="lightbox-close">&times;</span>
+      </div>
+    </div>
+
     <script type="module" src="/scripts/pages/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script type="module" src="/scripts/templates/LightBoxCard.js" defer></script>
+    <script src="/scripts/utils/LightBox.js" defer></script>
   </body>
 </html>

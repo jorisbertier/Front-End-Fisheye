@@ -1,4 +1,5 @@
 import { MediaCard } from "../templates/MediaCard.js";
+import { LightBox } from "../templates/LightBoxCard.js";
 //Mettre le code JavaScript lié à la page photographer.html
 // given url string
 // get url string current
@@ -39,7 +40,6 @@ async function getMedias() {
 async function getPhotographerByid() {
     const { photographers } = await getPhotographers();
     let photographer = photographers.find((photographer) => photographer.id === idPhotographer)
-    console.log(photographer.name)
 
     let name = document.querySelector('.main__content--title')
     let city = document.querySelector('.main__content--subtitle')
@@ -73,6 +73,10 @@ async function getMediasByPhotographer() {
 
         const mediaCardDOMmedia = mediaCard.createCardMedia()
         section.appendChild(mediaCardDOMmedia)
+
+        // Create LightBox for each media
+        const lightBox = new LightBox(media);
+        lightBox.createLightBox();
 
 });
     

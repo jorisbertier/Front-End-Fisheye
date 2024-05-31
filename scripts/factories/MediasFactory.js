@@ -8,7 +8,6 @@ class MediasFactory {
         else if(data.video === 'video') {
             return new Video(data)
         }
-
         else {
             throw "Unknown type format"
         }
