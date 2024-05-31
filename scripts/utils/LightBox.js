@@ -2,12 +2,15 @@ let mediaUrls = [];
 let mediaUrl;
 let currentMediaIndex = 0;
 let img = document.querySelector('.lightbox-media')
+let medias
 
+document.addEventListener('DOMContentLoaded', async function() {
 setTimeout(() => {
-
     
     let htmlCollection = document.getElementsByClassName('wrapper__media--img');
-    let medias = Array.from(htmlCollection);
+    console.log(htmlCollection)
+    
+    medias = Array.from(htmlCollection);
     console.log(medias);
 
     medias.forEach((media) => {
@@ -15,7 +18,7 @@ setTimeout(() => {
             // console.log(mediaUrls)
             media.addEventListener('click', () => {
             // mediaUrl = mediaUrls[currentMediaIndex];
-            currentMediaIndex = mediaUrls.indexOf(mediaUrl) + 1;
+            currentMediaIndex = mediaUrls.indexOf(mediaUrl) + 2;
             console.log(currentMediaIndex)
             mediaUrl = media.getAttribute('data-url');
             img.setAttribute('src', mediaUrl)
@@ -23,9 +26,8 @@ setTimeout(() => {
         });
     });
 
-
-
 }, 1000)
+});
 
 const lightboxContainer = document.querySelector('#lightbox_modal');
 const lightboxOpen = document.querySelector('.lightbox');
