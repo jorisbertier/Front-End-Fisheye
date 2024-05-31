@@ -14,71 +14,78 @@ setTimeout(() => {
     console.log(medias);
 
     medias.forEach((media) => {
-        mediaUrls.push(media.src); 
+        if (media.tagName === 'IMG') {
+            mediaUrls.push(media.src);
+        } else if (media.tagName === 'VIDEO') {
+            mediaUrls.push(media.querySelector('source').src);
+        }
 
         media.addEventListener('click', () => {
+            if (media.tagName === 'IMG') {
+                mediaUrl = media.src;
+            } else if (media.tagName === 'VIDEO') {
+                mediaUrl = media.querySelector('source').src;
+            }
 
-            mediaUrl = media.src;
             currentMediaIndex = mediaUrls.indexOf(mediaUrl);
-            img.setAttribute('src', mediaUrl)
-            displaylightBox(mediaUrl)
-            
+
+            updateLightboxMedia(mediaUrl);
+
+            displaylightBox();
         });
-    });
+        });
 
 }, 1000)
+
+document.querySelector('.lightbox-navigation-left').addEventListener('click', showPreviousMedia);
+document.querySelector('.lightbox-navigation-right').addEventListener('click', showNextMedia);
+document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
 });
 
-const lightboxContainer = document.querySelector('#lightbox_modal');
-const lightboxOpen = document.querySelector('.lightbox');
-const lightboxClose = document.querySelector('.lightbox-close');
-let nextMedia = document.querySelector('.lightbox-navigation-right')
-let prevMedia = document.querySelector('.lightbox-navigation-left')
-
 function displaylightBox() {
-    lightboxContainer.style.display = "block";
+    const lightbox = document.getElementById('lightbox_modal');
+    lightbox.style.display = 'block';
 }
 
-function closeLightBox() {
-        lightboxContainer.style.display = "none";
-}
+function updateLightboxMedia(mediaUrl) {
+    const imgElement = document.querySelector('.lightbox-media');
+    const videoElement = document.querySelector('.wrapper__media--video');
+    const sourceElement = document.querySelector('.video__source');
 
-lightboxOpen.addEventListener('click', ()=> {
-    displaylightBox()
-})
-
-lightboxClose.addEventListener('click', ()=> {
-    closeLightBox()
-})
-
-
-nextMedia.addEventListener('click', ()=> {
-    //get index img at click
-    // currentMediaIndex = mediaUrls.indexOf(mediaUrl);
-    currentMediaIndex++;
-    // currentMediaIndex = (currentMediaIndex + 1) % mediasUrl.length;
-    // currentMediaIndex = currentMediaIndex + 1;
-    console.log(currentMediaIndex)
-    if(currentMediaIndex >= mediaUrls.length) {
-        currentMediaIndex = 0;
+    if (mediaUrl.endsWith('.mp4')) {
+        imgElement.classList.add('hidden');
+        videoElement.classList.remove('hidden');
+        sourceElement.src = mediaUrl;
+        videoElement.load();
+    } else {
+        videoElement.classList.add('hidden');
+        imgElement.classList.remove('hidden');
+        imgElement.src = mediaUrl;
     }
-    //get index src array img click
-    img.setAttribute('src', mediaUrls[currentMediaIndex])
-        // Logs pour déboguer
-    console.log(`Index actuel: ${currentMediaIndex}`);
-    console.log(`URL actuelle: ${mediaUrl}`);
-})
+}
 
-prevMedia.addEventListener('click', ()=> {
+function showPreviousMedia() {
     currentMediaIndex = (currentMediaIndex - 1 + mediaUrls.length) % mediaUrls.length;
+    // if (currentMediaIndex === 0) {
+    //     currentMediaIndex = mediaUrls.length - 1;
+    // } else {
+    //     currentMediaIndex--;
+    // }
+    const previousMediaUrl = mediaUrls[currentMediaIndex];
+    updateLightboxMedia(previousMediaUrl);
+}
 
-    // Mettre à jour l'URL de l'image et l'afficher dans la lightbox
-    mediaUrl = mediaUrls[currentMediaIndex];
-    document.querySelector('.lightbox-media').setAttribute('src', mediaUrl);
+function showNextMedia() {
+    currentMediaIndex = (currentMediaIndex + 1) % mediaUrls.length;
+    // currentMediaIndex++;
+    // if(currentMediaIndex >= mediaUrls.length) {
+    //     currentMediaIndex = 0;
+    // }
+    
+    const nextMediaUrl = mediaUrls[currentMediaIndex];
+    updateLightboxMedia(nextMediaUrl);
+}
 
-    // Logs pour déboguer
-    console.log(`Index actuel: ${currentMediaIndex}`);
-    console.log(`URL actuelle: ${mediaUrl}`);
-})
-
-
+function closeLightbox() {
+    document.getElementById('lightbox_modal').style.display = 'none';
+}
