@@ -14,15 +14,15 @@ setTimeout(() => {
     console.log(medias);
 
     medias.forEach((media) => {
-            mediaUrls.push(media.getAttribute('data-url'))
-            // console.log(mediaUrls)
-            media.addEventListener('click', () => {
-            // mediaUrl = mediaUrls[currentMediaIndex];
-            currentMediaIndex = mediaUrls.indexOf(mediaUrl) + 2;
-            console.log(currentMediaIndex)
-            mediaUrl = media.getAttribute('data-url');
+        mediaUrls.push(media.src); 
+
+        media.addEventListener('click', () => {
+
+            mediaUrl = media.src;
+            currentMediaIndex = mediaUrls.indexOf(mediaUrl);
             img.setAttribute('src', mediaUrl)
             displaylightBox(mediaUrl)
+            
         });
     });
 
