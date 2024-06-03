@@ -6,6 +6,7 @@ class MediaCard {
         this.media = media
         this.likes = data.likes;
         this.updateTotalLikesCallback = updateTotalLikesCallback;
+        this.hasLiked = false
     }
 
     createCardMedia() {
@@ -47,9 +48,18 @@ class MediaCard {
         const likesElement = mediaElement.querySelector('.wrapper__media--content--like--p');
 
         likeIcon.addEventListener('click', () => {
-            this.likes += 1;
+
+            if(!this.hasLiked) {
+                this.likes += 1;
+                this.updateTotalLikesCallback(1);
+                this.hasLiked = true
+            } else {
+                this.likes -= 1;
+                this.updateTotalLikesCallback(-1);
+                this.hasLiked = false
+            }
+            
             likesElement.innerText = this.likes;
-            this.updateTotalLikesCallback(1);
         });
 
         return mediaElement;
