@@ -1,7 +1,7 @@
 import { MediaCard } from "../templates/MediaCard.js";
 import { LightBox } from "../templates/LightBoxCard.js";
 import { displayTotalLikes } from '../functions/likes.js'
-//Mettre le code JavaScript lié à la page photographer.html
+
 // given url string
 // get url string current
 var url_str = document.URL; 
@@ -38,6 +38,7 @@ async function getMedias() {
         medias: [...medias]})
 }
 
+// get photographer by id
 async function getPhotographerByid() {
     const { photographers } = await getPhotographers();
     let photographer = photographers.find((photographer) => photographer.id === idPhotographer)
@@ -57,6 +58,7 @@ async function getPhotographerByid() {
 
 
 let totalLikes = 0;
+
 async function getMediasByPhotographer() {
     const { medias } = await getMedias();
     
