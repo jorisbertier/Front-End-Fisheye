@@ -1,13 +1,16 @@
+
+
 class MediaCard {
-    constructor(data, media) {
+    constructor(data, media, updateTotalLikesCallback) {
         this.data = data
         this.media = media
+        this.likes = data.likes;
+        this.updateTotalLikesCallback = updateTotalLikesCallback;
     }
 
     createCardMedia() {
         const {id, photographerId, title, likes, date, price} = this.data
         let mediaSrc;
-        let totalLike;
 
         if(this.data.image) {
             mediaSrc = `
@@ -31,13 +34,25 @@ class MediaCard {
                 <div class="wrapper__media--content">
                     <h3 class="wrapper__media--content--title">${title}</h3>
                     <div class="wrapper__media--content--like">
-                        <p class="wrapper__media--content--like--p">${likes}</p>
+                        <p class="wrapper__media--content--like--p">${this.likes}</p>
                         <span class="wrapper__media--content--like-icon">♥</span>
                     </div>
                 </div>
             </article>
         `
-        return template.content.cloneNode(true);
+
+        const mediaElement = template.content.cloneNode(true);
+
+        const likeIcon = mediaElement.querySelector('.wrapper__media--content--like-icon');
+        const likesElement = mediaElement.querySelector('.wrapper__media--content--like--p');
+
+        likeIcon.addEventListener('click', () => {
+            this.likes += 1;
+            likesElement.innerText = this.likes;
+            this.updateTotalLikesCallback(1);
+        });
+
+        return mediaElement;
     }
 }
 

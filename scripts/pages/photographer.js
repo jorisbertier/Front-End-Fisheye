@@ -1,6 +1,6 @@
 import { MediaCard } from "../templates/MediaCard.js";
 import { LightBox } from "../templates/LightBoxCard.js";
-import { totalLike } from '../functions/likes.js'
+import { displayTotalLikes } from '../functions/likes.js'
 //Mettre le code JavaScript lié à la page photographer.html
 // given url string
 // get url string current
@@ -55,27 +55,28 @@ async function getPhotographerByid() {
     price.innerText = `${photographer.price}€ / jour`
 }
 
-// function totalLike(total) {
-//     let sectionLike = document.querySelector('.wrapper__fixed--like')
-//     sectionLike.innerText = total;
-// }
 
-let allLikes = 0;
+let totalLikes = 0;
 async function getMediasByPhotographer() {
     const { medias } = await getMedias();
     
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
 
+    const updateTotalLikesCallback = (likesToAdd) => {
+        totalLikes += likesToAdd;
+        displayTotalLikes(totalLikes);
+    };
+
     allMediasByPhotographer.forEach((media) => {
         const section = document.querySelector('.section__media')
         let mediaCard;
-        allLikes += media.likes
+        totalLikes += media.likes
 
         if(media.image) {
-            mediaCard = new MediaCard(media, 'image')
+            mediaCard = new MediaCard(media, 'image', updateTotalLikesCallback)
         } else if(media.video) {
-            mediaCard = new MediaCard(media, 'video')
+            mediaCard = new MediaCard(media, 'video', updateTotalLikesCallback)
         } else {
             throw 'Unknown type format'
         }
@@ -88,9 +89,7 @@ async function getMediasByPhotographer() {
         lightBox.createLightBox();
 
 });
-totalLike(allLikes)
-    
-    
+displayTotalLikes(totalLikes)    
 }
 
 getMediasByPhotographer()
