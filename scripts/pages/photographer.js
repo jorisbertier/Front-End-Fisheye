@@ -1,5 +1,6 @@
 import { MediaCard } from "../templates/MediaCard.js";
 import { LightBox } from "../templates/LightBoxCard.js";
+import { totalLike } from '../functions/likes.js'
 //Mettre le code JavaScript lié à la page photographer.html
 // given url string
 // get url string current
@@ -54,14 +55,22 @@ async function getPhotographerByid() {
     price.innerText = `${photographer.price}€ / jour`
 }
 
+// function totalLike(total) {
+//     let sectionLike = document.querySelector('.wrapper__fixed--like')
+//     sectionLike.innerText = total;
+// }
+
+let allLikes = 0;
 async function getMediasByPhotographer() {
     const { medias } = await getMedias();
+    
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
 
     allMediasByPhotographer.forEach((media) => {
         const section = document.querySelector('.section__media')
         let mediaCard;
+        allLikes += media.likes
 
         if(media.image) {
             mediaCard = new MediaCard(media, 'image')
@@ -79,6 +88,7 @@ async function getMediasByPhotographer() {
         lightBox.createLightBox();
 
 });
+totalLike(allLikes)
     
     
 }

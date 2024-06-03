@@ -7,6 +7,7 @@ class MediaCard {
     createCardMedia() {
         const {id, photographerId, title, likes, date, price} = this.data
         let mediaSrc;
+        let totalLike;
 
         if(this.data.image) {
             mediaSrc = `
