@@ -9,6 +9,7 @@ import { PhotographerCard } from "../templates/PhotographerCard.js"
             const response = await fetch('data/photographers.json')
             let data = await response.json()
             photographers = data['photographers']
+            console.log(photographers)
         } catch(error) {
             console.log('Error gettings datas photographers', error)
         }

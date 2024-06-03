@@ -81,7 +81,6 @@ function showNextMedia() {
     // if(currentMediaIndex >= mediaUrls.length) {
     //     currentMediaIndex = 0;
     // }
-    
     const nextMediaUrl = mediaUrls[currentMediaIndex];
     updateLightboxMedia(nextMediaUrl);
 }
