@@ -65,7 +65,7 @@ async function getMediasByPhotographer(sortBy = null) {
     
     const section = document.querySelector('.section__media');
     section.innerHTML = '';
-    totalLikes = 0;
+    // totalLikes = 0;
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
     
@@ -114,6 +114,10 @@ document.getElementById('date').addEventListener('click', () => {
 
 document.getElementById('title').addEventListener('click', () => {
     getMediasByPhotographer('title')
+})
+
+document.getElementById('popularity').addEventListener('click', () => {
+    getMediasByPhotographer(null)
 })
 
 getMediasByPhotographer()
