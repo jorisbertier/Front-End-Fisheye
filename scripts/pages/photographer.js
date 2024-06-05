@@ -1,6 +1,7 @@
 import { MediaCard } from "../templates/MediaCard.js";
 import { LightBox } from "../templates/LightBoxCard.js";
 import { displayTotalLikes } from '../functions/likes.js'
+import { sortMediasByDate, sortMediasByTitle } from '../functions/sort.js'
 
 // given url string
 // get url string current
@@ -59,11 +60,24 @@ async function getPhotographerByid() {
 
 let totalLikes = 0;
 
-async function getMediasByPhotographer() {
+async function getMediasByPhotographer(sortBy = null) {
     const { medias } = await getMedias();
     
+    const section = document.querySelector('.section__media');
+    section.innerHTML = '';
+    totalLikes = 0;
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
+    
+    if (sortBy === 'date') {
+        allMediasByPhotographer = sortMediasByDate(allMediasByPhotographer);
+        console.log('Medias sorted by date:', allMediasByPhotographer);
+    }
+
+    if (sortBy === 'title') {
+        allMediasByPhotographer = sortMediasByTitle(allMediasByPhotographer);
+        console.log('Medias sorted by title:', allMediasByPhotographer);
+    }
 
     const updateTotalLikesCallback = (likesToAdd) => {
         totalLikes += likesToAdd;
@@ -93,6 +107,14 @@ async function getMediasByPhotographer() {
 });
 displayTotalLikes(totalLikes)    
 }
+
+document.getElementById('date').addEventListener('click', () => {
+    getMediasByPhotographer('date')
+})
+
+document.getElementById('title').addEventListener('click', () => {
+    getMediasByPhotographer('title')
+})
 
 getMediasByPhotographer()
 getPhotographerByid()
