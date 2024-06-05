@@ -241,3 +241,71 @@ form input {
     z-index: 10;
     height: 90%;
 }
+
+/* dropdown */
+
+#wrapper__dropdown {
+    display: flex;
+    position: relative;
+}
+.open__dropdown-menu {
+    background-color: #901C1C;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
+    width: 150px;
+    border-radius: 5px;
+
+
+}
+.dropdown-menu__list {
+    list-style: none;
+    background-color: #901C1C;
+    width: 150px;
+    color: white;
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 0;
+    position: absolute; 
+    top: 0; 
+    left: 100px;
+    z-index: 10;
+}
+
+.dropdown-menu__list-item {
+    
+    font-size: 20px;
+    font-weight: 700;
+}
+.dropdown-menu__list-item:nth-child(1) {
+    margin-bottom: 10px;
+}
+
+.dropdown-menu__list-item:nth-child(2) {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dropdown-menu__list-item:nth-child(3) {
+    margin-top: 10px;
+}
+
+.fa-chevron-up{
+    margin-left: 20px;
+}
+
+.fa-chevron-down{
+    margin-left: 20px;
+}
+
+
+.close {
+    display: none;
+}
+.open{
+    display: block;
+}
