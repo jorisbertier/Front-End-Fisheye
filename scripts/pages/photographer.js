@@ -1,4 +1,5 @@
 import { MediaCard } from "../templates/MediaCard.js";
+import { AboutPhotographerCard } from '../templates/AboutPhotographerCard.js'
 import { LightBox } from "../templates/LightBoxCard.js";
 import { displayTotalLikes } from '../functions/likes.js'
 import { sortMediasByDate, sortMediasByTitle } from '../functions/sort.js'
@@ -44,19 +45,15 @@ async function getPhotographerByid() {
     const { photographers } = await getPhotographers();
     let photographer = photographers.find((photographer) => photographer.id === idPhotographer)
 
-    let name = document.querySelector('.main__content--title')
-    let city = document.querySelector('.main__content--subtitle')
-    let tagline = document.querySelector('.main__content--subtitle-text')
+    const section = document.querySelector('#main');
+    let aboutPhotographer = new AboutPhotographerCard(photographer)
+
+    const aboutPhotogarpherCardDOM = aboutPhotographer.createCard()
+    section.appendChild(aboutPhotogarpherCardDOM)
+
     let price = document.querySelector('.wrapper__fixed--price')
-    let portrait = document.querySelector('.main__picture--img')
-    name.innerText = photographer.name
-    city.innerText = `${photographer.city}, ${photographer.country}`
-    tagline.innerText = photographer.tagline
-    portrait.setAttribute('src', `/assets/photographers/${photographer.portrait}`)
-    portrait.setAttribute('alt', `Profile picture ${photographer.name}`)
     price.innerText = `${photographer.price}€ / jour`
 }
-
 
 let totalLikes = 0;
 
@@ -65,7 +62,9 @@ async function getMediasByPhotographer(sortBy = null) {
     
     const section = document.querySelector('.section__media');
     section.innerHTML = '';
-    // totalLikes = 0;
+
+    // ne sadittionne pas 
+    totalLikes = 0;
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
     
