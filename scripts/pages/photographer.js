@@ -2,7 +2,7 @@ import { MediaCard } from "../templates/MediaCard.js";
 import { AboutPhotographerCard } from '../templates/AboutPhotographerCard.js'
 import { LightBox } from "../templates/LightBoxCard.js";
 import { displayTotalLikes } from '../functions/likes.js'
-import { sortMediasByDate, sortMediasByTitle } from '../functions/sort.js'
+import { sortMediasByDate, sortMediasByTitle, attachEventListenersSorts } from '../functions/sort.js'
 
 // given url string
 // get url string current
@@ -106,18 +106,19 @@ async function getMediasByPhotographer(sortBy = null) {
 });
 displayTotalLikes(totalLikes)    
 }
+attachEventListenersSorts(getMediasByPhotographer)
 
-document.getElementById('date').addEventListener('click', () => {
-    getMediasByPhotographer('date')
-})
+// document.getElementById('date').addEventListener('click', () => {
+//     getMediasByPhotographer('date')
+// })
 
-document.getElementById('title').addEventListener('click', () => {
-    getMediasByPhotographer('title')
-})
+// document.getElementById('title').addEventListener('click', () => {
+//     getMediasByPhotographer('title')
+// })
 
-document.getElementById('popularity').addEventListener('click', () => {
-    getMediasByPhotographer(null)
-})
+// document.getElementById('popularity').addEventListener('click', () => {
+//     getMediasByPhotographer(null)
+// })
 
 getMediasByPhotographer()
 getPhotographerByid()
