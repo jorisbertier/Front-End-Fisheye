@@ -15,7 +15,9 @@ export function attachEventListenersSorts(getMediasByPhotographer) {
         getMediasByPhotographer('title');
     });
 
-    document.getElementById('popularity').addEventListener('click', () => {
-        getMediasByPhotographer(null);
+    document.getElementById('popularity').addEventListener('click', (event) => {
+        if (event.currentTarget === event.target) {
+            getMediasByPhotographer(null);
+        }
     });
 }
