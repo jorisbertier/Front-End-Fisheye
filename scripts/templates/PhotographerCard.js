@@ -12,9 +12,9 @@ class PhotographerCard {
         const template = document.createElement('template');
         template.innerHTML =
         `
-        <article class="wrapper__photographers">
-            <a href="photographer.html?id=${id}" class="wrapper__photographers--link">
-                <img src="${picture}" alt="Profile picture ${name}" class="wrapper__photographers--img"/>
+        <article class="wrapper__photographers" role="article" aria-labelledby="photographer-${id}-name">
+            <a href="photographer.html?id=${id}" class="wrapper__photographers--link" aria-label="Ouvrir le carrousel à partir de l'article ${name}">
+                <img src="${picture}" alt="Image profil de ${name}" aria-label="Profil de ${name}" class="wrapper__photographers--img"/>
                 <h2 class="wrapper__photographers--title">${name}</h2>
             </a>
             <h3 class="wrapper__photographers--second-title">${city}, ${country}</h3>
