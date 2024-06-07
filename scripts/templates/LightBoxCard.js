@@ -1,5 +1,3 @@
-// import { MediaCard } from "../templates/MediaCard.js";
-
 class LightBox {
     constructor(data) {
         this.data = data;
@@ -26,7 +24,6 @@ class LightBox {
         
         const template = document.createElement('template')
         template.innerHTML = `
-        <div id="lightbox_modal" class="lightbox-modal">
             <div class="lightbox-content">
                 <div class="lightbox-navigation lightbox-navigation-left">
                     <span class="lightbox-arrow">&lt;</span>
@@ -42,13 +39,9 @@ class LightBox {
                 </div>
                 <span class="lightbox-close">&times;</span>
             </div>
-        </div>
         `;
         return template.content.cloneNode(true);
     }
-
-
 }
-
 
 export { LightBox }

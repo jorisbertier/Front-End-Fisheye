@@ -18,7 +18,7 @@
         <img src="assets/images/logo.png" class="logo" alt="Fisheye Home page" />
       </a>
     </header>
-    <main id="main">
+    <main id="main" class="main__photographer">
       <!-- <div class="main__content">
         <h1 class="main__content--title"></h1>
         <h2 class="main__content--subtitle"></h2>
@@ -64,41 +64,40 @@
 
     <section id="wrapper__dropdown">
       <label for="sort" class="sort">Trier par</label>
-      <!-- <select id="sort" name="sort"> -->
-        <!-- <button id="popularity">Popularité</button>
-        <button id="date">Date</button>
-        <button id="title">Titre</button> -->
-        <div class="open__dropdown-menu">Popularité <i class="fa-solid fa-chevron-down"></i></div>
+
+        <!-- <div class="open__dropdown-menu">Popularité <i class="fa-solid fa-chevron-down"></i></div>
         <ul class="dropdown-menu__list">
           <li class="dropdown-menu__list-item" id="popularity">Popularité<i class="fa-solid fa-chevron-up"></i></li>
           <li class="dropdown-menu__list-item" id="date">Date</li>
           <li class="dropdown-menu__list-item" id="title">Titre</li>
+        </ul> -->
+        <div class="open__dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false">
+          Popularité <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <ul class="dropdown-menu__list" role="menu">
+          <li role="none">
+            <button class="dropdown-menu__list-item" id="popularity" role="menuitem">
+              Popularité<i class="fa-solid fa-chevron-up"></i>
+            </button>
+          </li>
+          <li role="none">
+            <button class="dropdown-menu__list-item" id="date" role="menuitem">
+              Date
+            </button>
+          </li>
+          <li role="none">
+            <button class="dropdown-menu__list-item" id="title" role="menuitem">
+              Titre
+            </button>
+          </li>
         </ul>
-      </div>
-      <!-- </select> -->
+      
     </section>
 
     <section class="section__media">
     </section>
-
-    <!-- <button class="lightbox" onclick="displaylightBox()">Lightbox</button> -->
     
     <div id="lightbox_modal" class="lightbox-modal">
-      <div class="lightbox-content">
-          <div class="lightbox-navigation lightbox-navigation-left">
-              <span class="lightbox-arrow">&lt;</span>
-          </div>
-          <div class="lightbox-media-container">
-              <img src="" class="lightbox-media" alt="Description de votre image">
-              <video class="rounded wrapper__media--video hidden" controls tabindex="-1" width="100%" height="100%" aria-label="">
-                <source src="" class="video__source"type="video/mp4">
-              </video>
-          </div>
-          <div class="lightbox-navigation lightbox-navigation-right">
-              <span class="lightbox-arrow">&gt;</span>
-          </div>
-          <span class="lightbox-close">&times;</span>
-      </div>
     </div>
 
     <script type="module" src="/scripts/pages/photographer.js"></script>

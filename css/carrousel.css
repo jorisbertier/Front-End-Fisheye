@@ -1,21 +1,26 @@
 /* Style de la modal */
 .lightbox-modal {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
-    z-index: 9999; /* Assure que la modal soit au-dessus de tout le reste */
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    margin-top: 0;
 }
 
 /* Style du contenu de la modal */
 .lightbox-content {
     position: relative;
-    width: 80%; /* Largeur du contenu de la modal */
-    margin: 10% auto; /* Centre la modal verticalement et horizontalement */
-    background-color: #fff; /* Fond blanc */
+    width: 80%;
+    margin: 10% auto;
+    /* margin-top: 5%; */
+    height: 90%;
+    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Ombre légère */
@@ -71,6 +76,7 @@
     font-size: 24px;
     color: #fff;
     cursor: pointer;
+    color: red;
 }
 
 /* Style de survol pour la fermeture */
@@ -80,4 +86,8 @@
 
 .hidden {
     display: none;
+}
+
+.no-scroll {
+    overflow: hidden;
 }

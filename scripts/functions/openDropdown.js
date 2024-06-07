@@ -1,8 +1,6 @@
 let openDropdown = document.querySelector('.open__dropdown-menu')
 let list = document.querySelector('.dropdown-menu__list')
 let closeDropdown = document.querySelector('.fa-chevron-up')
-console.log(openDropdown)
-console.log(list)
 
 openDropdown.addEventListener('click', ()=> {
     list.classList.add('open')

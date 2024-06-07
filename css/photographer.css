@@ -10,6 +10,14 @@
     margin-top: 100px;
 }
 
+.main__photographer {
+    background: #FAFAFA;
+    width: 76%;
+    margin-left: 10%;
+    padding: 30px;
+    border-radius: 5px;
+}
+
 .main__content {
     display: flex;
     flex-direction: column;
@@ -29,6 +37,7 @@
     text-align: left;    
     margin-top: 15px;
     width: 100%;
+    color: #901C1C;
 }
 .main__content--subtitle-text {
     font-family: DM Sans;
@@ -158,7 +167,7 @@ select {
 }
 .contact_button {
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 400;
     color: white;
     padding: 11px;
     width: 170px;
@@ -275,10 +284,14 @@ form input {
 }
 
 .dropdown-menu__list-item {
-    
     font-size: 20px;
     font-weight: 700;
+    background-color: #901C1C;
+    border: none;
+    color: white;
 }
+
+
 .dropdown-menu__list-item:nth-child(1) {
     margin-bottom: 10px;
 }

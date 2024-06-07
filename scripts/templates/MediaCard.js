@@ -1,5 +1,3 @@
-
-
 class MediaCard {
     constructor(data, media, updateTotalLikesCallback) {
         this.data = data
@@ -10,7 +8,7 @@ class MediaCard {
     }
 
     createCardMedia() {
-        const {id, photographerId, title, likes, date, price} = this.data
+        const {id, title} = this.data
         let mediaSrc;
 
         if(this.data.image) {

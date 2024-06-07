@@ -63,10 +63,16 @@ async function getMediasByPhotographer(sortBy = null) {
     const section = document.querySelector('.section__media');
     section.innerHTML = '';
 
-    // ne sadittionne pas 
+    // ne s adittionne pas 
     totalLikes = 0;
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
+
+    // Create LightBox modal for each media
+    let sectionModal = document.querySelector('#lightbox_modal')
+    const lightBox = new LightBox(medias);
+    const aboutPhotogarpherCardDOM = lightBox.createLightBox()
+    sectionModal.appendChild(aboutPhotogarpherCardDOM)
     
     if (sortBy === 'date') {
         allMediasByPhotographer = sortMediasByDate(allMediasByPhotographer);
@@ -99,26 +105,10 @@ async function getMediasByPhotographer(sortBy = null) {
         const mediaCardDOMmedia = mediaCard.createCardMedia()
         section.appendChild(mediaCardDOMmedia)
 
-        // Create LightBox for each media
-        const lightBox = new LightBox(media);
-        lightBox.createLightBox();
-
 });
 displayTotalLikes(totalLikes)    
 }
 attachEventListenersSorts(getMediasByPhotographer)
-
-// document.getElementById('date').addEventListener('click', () => {
-//     getMediasByPhotographer('date')
-// })
-
-// document.getElementById('title').addEventListener('click', () => {
-//     getMediasByPhotographer('title')
-// })
-
-// document.getElementById('popularity').addEventListener('click', () => {
-//     getMediasByPhotographer(null)
-// })
 
 getMediasByPhotographer()
 getPhotographerByid()
