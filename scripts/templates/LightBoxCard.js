@@ -7,21 +7,7 @@ class LightBox {
 
     createLightBox() {
         const { id, photographerId, title, likes, date, price } = this.data;
-        // let mediaSrc;
 
-        // if (this.data.image) {
-        //     mediaSrc = `<img src="/assets/medias/${this.data.image}" class="lightbox-media" alt="${title}" />`;
-        // } else if (this.data.video) {
-        //     mediaSrc = `
-        //         <video class="rounded lightbox-media" controls tabindex="-1" width="100%" height="100%" aria-label="">
-        //             <source src="assets/medias/${this.data.video}"  type="video/mp4">
-        //         </video>
-        //     `;
-        // } else {
-        //     throw 'Unknown media type';
-        // }
-
-        
         const template = document.createElement('template')
         template.innerHTML = `
             <div class="lightbox-content">
@@ -41,6 +27,15 @@ class LightBox {
             </div>
         `;
         return template.content.cloneNode(true);
+    }
+
+    changeImage(index) {
+        // Cachez l'image actuelle (et la vidéo si elle est affichée)
+        this.mediaElements[this.currentIndex].classList.remove('show');
+        // Mettez à jour l'index actuel
+        this.currentIndex = index;
+        // Affichez la nouvelle image (ou vidéo)
+        this.mediaElements[this.currentIndex].classList.add('show');
     }
 }
 

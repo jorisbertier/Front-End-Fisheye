@@ -74,18 +74,23 @@
     display: block;
     border-radius: 5px;
     object-fit: contain;
-    
+    opacity: 0.2s ease-in-out;
+}
+.lightbox-media:hover,
+.lightbox-media:focus {
+    opacity: 0.8;
 }
 
-.lightbox-media img {
-    
-}
 .wrapper__media--video {
     border-radius: 5px;
     object-fit: contain;
+    width: 90%;
+    height: 100%;
 }
 
+
 /* Style de la fermeture */
+
 .lightbox-close {
     position: absolute;
     top: 10px;
@@ -96,10 +101,15 @@
     transition: all 0.1s;
 }
 
+.lightbox-close .fa-xmark:hover  {
+    color: #DB8876;
+}
+
 .fa-xmark {
     color: #901C1C;
     font-size: 50px;
 }
+
 
 /* Style de survol pour la fermeture */
 .lightbox-close:hover {
