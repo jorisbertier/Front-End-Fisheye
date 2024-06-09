@@ -37,16 +37,21 @@
     text-align: center;
     font-size: 24px;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
+    /* background-color: rgba(0, 0, 0, 0.5); */
     cursor: pointer;
 }
 
 .lightbox-navigation-left {
-    left: 10px;
+    left: 20px;
 }
 
 .lightbox-navigation-right {
-    right: 10px;
+    right: 20px;
+}
+
+.fa-angle-right, .fa-angle-left{
+    color:#901C1C;
+    font-size: 50px;
 }
 
 /* Style de la flèche */
@@ -57,15 +62,27 @@
 /* Style de la média */
 .lightbox-media-container {
     text-align: center;
+    height: 100%;
 }
 
 .lightbox-media {
-    height: 500px;
-    width: 500px;
+    height: auto;
+    width: auto;
     max-width: 100%;
     max-height: 100%;
     margin: auto;
     display: block;
+    border-radius: 5px;
+    object-fit: contain;
+    
+}
+
+.lightbox-media img {
+    
+}
+.wrapper__media--video {
+    border-radius: 5px;
+    object-fit: contain;
 }
 
 /* Style de la fermeture */
@@ -73,15 +90,20 @@
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 24px;
+    font-weight: 200;
     color: #fff;
     cursor: pointer;
-    color: red;
+    transition: all 0.1s;
+}
+
+.fa-xmark {
+    color: #901C1C;
+    font-size: 50px;
 }
 
 /* Style de survol pour la fermeture */
 .lightbox-close:hover {
-    color: #ccc;
+    color: #DB8876;
 }
 
 .hidden {
