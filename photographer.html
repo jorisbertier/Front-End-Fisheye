@@ -71,7 +71,8 @@
           <li class="dropdown-menu__list-item" id="date">Date</li>
           <li class="dropdown-menu__list-item" id="title">Titre</li>
         </ul> -->
-        <div class="open__dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false">
+        
+        <!-- <div class="open__dropdown-menu" role="button" aria-haspopup="true" aria-expanded="false">
           Popularité <i class="fa-solid fa-chevron-down"></i>
         </div>
         <ul class="dropdown-menu__list" role="menu">
@@ -90,7 +91,18 @@
               Titre
             </button>
           </li>
-        </ul>
+        </ul> -->
+        <div class="dropdown__menu">
+          <button id="popularity" class="dropdown__menu--popularity" role="button" aria-haspopup="true" aria-expanded="false">
+            Popularité <i class="fa-solid fa-chevron-down"></i><i class="fa-solid fa-chevron-up"></i>
+          </button>
+          <button id="date" class="dropdown__menu--date" id="date" role="menuitem">
+            Date
+          </button>
+          <button id="title" class="dropdown__menu--title" id="title" role="menuitem">
+            Titre
+          </button>
+        </div>
       
     </section>
 

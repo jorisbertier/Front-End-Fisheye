@@ -1,14 +1,20 @@
-let openDropdown = document.querySelector('.open__dropdown-menu')
-let list = document.querySelector('.dropdown-menu__list')
+let openDropdown = document.querySelector('.fa-chevron-down')
 let closeDropdown = document.querySelector('.fa-chevron-up')
 
+let buttonPopularity = document.querySelector('.dropdown__menu--popularity')
+let buttonDate = document.querySelector('.dropdown__menu--date')
+let buttonTitle = document.querySelector('.dropdown__menu--title')
+
 openDropdown.addEventListener('click', ()=> {
-    list.classList.add('open')
-    openDropdown.classList.add('close')
+    buttonDate.style.display = "block";
+    buttonTitle.style.display = "block";
+    openDropdown.style.display = "none";
+    closeDropdown.style.display = "block";
 })
 
 closeDropdown.addEventListener('click', ()=> {
-    list.classList.remove('open')
-    list.classList.add('close')
-    openDropdown.classList.remove('close')
+    buttonDate.style.display = "none";
+    buttonTitle.style.display = "none";
+    openDropdown.style.display = "block";
+    closeDropdown.style.display = "none";
 })
