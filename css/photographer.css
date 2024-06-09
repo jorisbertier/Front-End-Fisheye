@@ -146,20 +146,17 @@ select {
 #contact_modal {
     display: none;
     position: fixed;
-    z-index: 1;
-    /* left: 0%;
-    top: 25%; */
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100vw;
     height: 100vh;
-    width: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    /* backdrop-filter: blur(10px); */
-    margin-top: 200px;
-    margin-bottom: 0;
+    margin: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 90px;
 }
 .contact_button {
     font-size: 20px;
@@ -181,12 +178,13 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: 35px;
     margin: auto;
     position: relative;
     z-index: 10;
-    height: 90%;
+    height: 80%;
+    margin-top: 2%;
 }
 
 .modal header {
@@ -313,10 +311,11 @@ form input {
     margin-left: 20px;
 }
 
-
 .close {
     display: none;
 }
+
 .open{
     display: block;
 }
+
