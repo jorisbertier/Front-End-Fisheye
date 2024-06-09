@@ -20,7 +20,7 @@
     margin: 10% auto;
     /* margin-top: 5%; */
     height: 90%;
-    background-color: #fff;
+    background-color: var(--white-color);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Ombre légère */
@@ -36,7 +36,7 @@
     line-height: 30px;
     text-align: center;
     font-size: 24px;
-    color: #fff;
+    color: var(--white-color);
     /* background-color: rgba(0, 0, 0, 0.5); */
     cursor: pointer;
 }
@@ -50,7 +50,7 @@
 }
 
 .fa-angle-right, .fa-angle-left{
-    color:#901C1C;
+    color: var(--primary-bg-color);
     font-size: 50px;
 }
 
@@ -74,11 +74,6 @@
     display: block;
     border-radius: 5px;
     object-fit: contain;
-    opacity: 0.2s ease-in-out;
-}
-.lightbox-media:hover,
-.lightbox-media:focus {
-    opacity: 0.8;
 }
 
 .wrapper__media--video {
@@ -96,24 +91,24 @@
     top: 10px;
     right: 10px;
     font-weight: 200;
-    color: #fff;
+    color: var(--white-color);
     cursor: pointer;
     transition: all 0.1s;
 }
 
 .lightbox-close .fa-xmark:hover  {
-    color: #DB8876;
+    color: var(--secondary-bg-color);
 }
 
 .fa-xmark {
-    color: #901C1C;
+    color: var(--primary-bg-color);
     font-size: 50px;
 }
 
 
 /* Style de survol pour la fermeture */
 .lightbox-close:hover {
-    color: #DB8876;
+    color: var(--secondary-bg-color);
 }
 
 .hidden {

@@ -1,11 +1,11 @@
 @import url("photographer.css");
 @import url("carrousel.css");
 
+
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
 }
-
 
 header {
     display: flex;
@@ -16,7 +16,7 @@ header {
 }
 
 h1 {
-    color: #901C1C;
+    color: var(--primary-bg-color);
     margin-right: 100px;
 }
 
@@ -26,7 +26,7 @@ h1 {
 }
 
 .fixed {
-    background-color: #DB8876;
+    background-color: var(--secondary-bg-color);
     padding: 10px;
     width: 450px;
     height: 60px;
@@ -74,7 +74,7 @@ h1 {
 }
 
 .photographer_section article h2 {
-    color: #D3573C;
+    color: var(--third-bg-color);
     font-size: 36px;
     height: 10px;
 }
@@ -101,7 +101,7 @@ h1 {
     font-weight: 600;
     line-height: 16.93px;
     text-align: center;
-    color: #D3573C;
+    color: var(--third-bg-color);
     height: 2px;
     margin-top: 5px;
 }
@@ -132,5 +132,5 @@ h1 {
 
 .wrapper__media--content--like-icon {
     font-size: 29px;
-    color: #901C1C;
+    color: var(--primary-bg-color);
 }
