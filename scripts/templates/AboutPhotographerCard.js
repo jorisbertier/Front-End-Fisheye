@@ -7,7 +7,7 @@ class AboutPhotographerCard {
         const { name, portrait, city, country, tagline } = this.data;
         let template = document.createElement('template');
         template.innerHTML = `
-        <div class="main__content" aria-labelledby="photographer-name">
+        <div class="main__content" aria-labelledby="photographer-informations">
             <h1 class="main__content--title">${name}</h1>
             <h2 class="main__content--subtitle">${city}, ${country}</h2>
             <h3 class="main__content--subtitle-text">${tagline}</h3>

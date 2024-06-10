@@ -8,7 +8,7 @@ class LightBox {
 
         const template = document.createElement('template')
         template.innerHTML = `
-            <div class="lightbox-content" role="carrousel" aria-label="${title}>
+            <div class="lightbox-content" role="carrousel" aria-label="${title}">
                 <div class="lightbox-navigation lightbox-navigation-left" role="bouton image précédente du carrousel">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-left"></i></span>
                 </div>
