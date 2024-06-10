@@ -1,29 +1,27 @@
 class LightBox {
     constructor(data) {
         this.data = data;
-        // this.media = media;
-        // this.currentIndex = 0;
     }
 
     createLightBox() {
-        const { id, photographerId, title, likes, date, price } = this.data;
+        const { title } = this.data;
 
         const template = document.createElement('template')
         template.innerHTML = `
-            <div class="lightbox-content">
-                <div class="lightbox-navigation lightbox-navigation-left">
+            <div class="lightbox-content" role="carrousel" aria-label="${title}>
+                <div class="lightbox-navigation lightbox-navigation-left" role="bouton image précédente du carrousel">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-left"></i></span>
                 </div>
-                <div class="lightbox-media-container">
-                    <img src="" class="lightbox-media" alt="${title}">
-                    <video class="rounded wrapper__media--video hidden" controls tabindex="-1" width="100%" height="100%" alt="${title}" aria-label="">
+                <div class="lightbox-media-container" aria-labelledby="carrousel-titre-média">
+                    <img src="" class="lightbox-media" alt="${title}" aria-labelledby="carrousel-titre-média">
+                    <video class="rounded wrapper__media--video hidden" controls tabindex="-1" width="100%" height="100%" alt="${title}" aria-labelledby="carrousel-titre-média">
                         <source src="" class="video__source"type="video/mp4">
                     </video>
                 </div>
-                <div class="lightbox-navigation lightbox-navigation-right">
+                <div class="lightbox-navigation lightbox-navigation-right" role="bouton image suivante du carrousel">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-right"></i></span>
                 </div>
-                <span class="lightbox-close"><i class="fa-solid fa-xmark"></i></span>
+                <span role="bouton fermer carrousel" class="lightbox-close"><i class="fa-solid fa-xmark"></i></span>
             </div>
         `;
         return template.content.cloneNode(true);
