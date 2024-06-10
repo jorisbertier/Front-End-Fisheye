@@ -91,7 +91,7 @@ h1 {
 
 .wrapper__photographers--second-title {
     font-family: DM Sans;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 16.93px;
     text-align: center;
@@ -102,7 +102,7 @@ h1 {
 
 .wrapper__photographers--content {
     font-family: DM Sans;
-    font-size: 10px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 13.02px;
     text-align: center;
@@ -112,12 +112,13 @@ h1 {
 
 .wrapper__photographers--span {
     font-family: DM Sans;
-    font-size: 9px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 11.72px;
     text-align: center;
     height: 0;
     margin-top: 5px;
+    color: #757575;
 }
 
 .wrapper__media--content--title {

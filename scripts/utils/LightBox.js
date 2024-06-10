@@ -8,10 +8,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 setTimeout(() => {
     
     let htmlCollection = document.getElementsByClassName('wrapper__media--img');
-    console.log(htmlCollection)
     
     medias = Array.from(htmlCollection);
-    console.log(medias);
 
     medias.forEach((media) => {
         if (media.tagName === 'IMG') {

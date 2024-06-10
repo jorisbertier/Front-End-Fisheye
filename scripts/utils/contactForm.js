@@ -39,7 +39,6 @@ document.getElementById('form').addEventListener('submit', (event)=> {
         <img src="assets/icons/close.svg" onclick="closeModal()" />
         <h2>Formulaire de contact envoyé !</h2>
         `
-
     } else {
         console.log('Formuaire non envoyé')
     }
