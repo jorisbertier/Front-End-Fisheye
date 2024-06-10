@@ -12,7 +12,7 @@ let search_params = url.searchParams;
 
 // get value of "id" parameter
 const idPhotographer = parseInt(search_params.get('id'), 10)
-console.log(idPhotographer)
+
 
 // get allPhotographers
 async function getPhotographers() {

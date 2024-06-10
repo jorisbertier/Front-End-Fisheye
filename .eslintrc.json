@@ -1,0 +1,11 @@
+{
+    "extends": ["eslint:recommended"],
+    "rules": {
+        "no-extra-semi": "off",
+        "no-useless-escape": "off",
+        "no-console": "error" 
+    },
+    "parserOptions": {
+        "sourceType": "module"
+    }
+}

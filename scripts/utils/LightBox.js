@@ -1,7 +1,6 @@
 let mediaUrls = [];
 let mediaUrl;
 let currentMediaIndex = 0;
-let img = document.querySelector('.lightbox-media')
 let medias
 
 document.addEventListener('DOMContentLoaded', async function() {

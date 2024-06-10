@@ -8,7 +8,7 @@ class MediaCard {
     }
 
     createCardMedia() {
-        const {id, title} = this.data
+        const { title } = this.data
         let mediaSrc;
 
         if(this.data.image) {

@@ -41,7 +41,7 @@ function reorderButtons(clickedButton) {
     clickedButton.appendChild(closeDropdown)
 
     let secondButton = wrapperButton.children[1];
-    console.log(secondButton)
+    
     wrapperButton.insertBefore(borderTop, secondButton);
     wrapperButton.insertBefore(borderBottom, secondButton.nextSibling);
 

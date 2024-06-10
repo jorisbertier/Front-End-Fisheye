@@ -1,7 +1,8 @@
 const modal = document.getElementById("contact_modal");
 let modalContent = document.querySelector('.modal')
+const form = document.getElementById('form')
 
-
+// used Template class AboutPhotographerCard
 function displayModal() {
 	modal.style.display = "block";
 }
