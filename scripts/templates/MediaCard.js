@@ -51,10 +51,12 @@ class MediaCard {
                 this.likes += 1;
                 this.updateTotalLikesCallback(1);
                 this.hasLiked = true
+                likeIcon.setAttribute('style', 'color: #901C1C !important')
             } else {
                 this.likes -= 1;
                 this.updateTotalLikesCallback(-1);
                 this.hasLiked = false
+                likeIcon.setAttribute('style', 'color: #DB8876 !important')
             }
             
             likesElement.innerText = this.likes;

@@ -139,6 +139,7 @@ select {
 
 .wrapper__media--content--like-icon {
     cursor: pointer;
+    color:var(--secondary-bg-color) !important;
 }
 
 .wrapper__media--content--like {
