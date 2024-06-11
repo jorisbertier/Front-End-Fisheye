@@ -47,7 +47,7 @@ setTimeout(() => {
     document.querySelector('.lightbox-navigation-right').addEventListener('click', showNextMedia);
     document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
 }, 1000)
-
+// 
 });
 
 const body = document.querySelector('body')
