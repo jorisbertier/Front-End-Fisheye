@@ -27,7 +27,7 @@ class MediaCard {
 
         const template = document.createElement('template')
         template.innerHTML = `
-            <article class="wrapper__media" role="article">
+            <article class="wrapper__media" role="article" tabindex="0">
                 
                 ${mediaSrc}
                 <div class="wrapper__media--content">

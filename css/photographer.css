@@ -260,31 +260,14 @@ form input {
     position: relative;
     width: 80%;
     margin-left: 7%;
+    height: 100px;
+    margin-top: 50px;
 }
-/* .open__dropdown-menu {
-    background-color: var(--primary-bg-color);
-    color: var(--white-color);
-    font-size: 20px;
-    font-weight: 700;
-    padding: 10px;
-    width: 150px;
-    border-radius: 5px;
-} */
 
-/* .dropdown-menu__list {
-    list-style: none;
-    background-color: var(--primary-bg-color);
-    width: 150px;
-    color: var(--white-color);
-    display: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 0;
-    position: absolute; 
-    top: 0; 
-    left: 100px;
-    z-index: 10;
-} */
+.wrapper__dropdown--label {
+    font-size: 18px;
+    font-weight: 700;
+}
 
 .dropdown-menu__list-item {
     font-size: 20px;
@@ -293,23 +276,6 @@ form input {
     border: none;
     color: var(--white-color);
 }
-
-
-/* .dropdown-menu__list-item:nth-child(1) {
-    margin-bottom: 10px;
-}
-
-.dropdown-menu__list-item:nth-child(2) {
-    border-top: 1px solid var(--white-color);
-    border-bottom: 1px solid var(--white-color);
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.dropdown-menu__list-item:nth-child(3) {
-    margin-top: 10px;
-} */
-
 
 .fa-chevron-down{
     margin-left: 20px;
@@ -322,9 +288,8 @@ form input {
 .open{
     display: block;
 }
-/* NOUVEAU */
 
-
+/* Dropdown */
 
 .dropdown__menu--popularity, .dropdown__menu--date, .dropdown__menu--title {
     text-align: left;
@@ -349,7 +314,6 @@ form input {
     position: absolute;
     left: 10%;
 }
-
 
 .border-top{
     border-top: 1px solid white;
