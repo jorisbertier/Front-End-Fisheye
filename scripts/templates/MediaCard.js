@@ -62,6 +62,14 @@ class MediaCard {
             likesElement.innerText = this.likes;
         });
 
+        likeIcon.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                // Simuler un clic sur l'icône du cœur
+                likeIcon.click();
+            }
+        });
+
+
         return mediaElement;
     }
 }
