@@ -8,7 +8,7 @@ function displaylightBox() {
     lightbox.style.display = 'flex';
     body.classList.add('no-scroll');
 
-    document.addEventListener('keydown', handleKeydown);
+    document.addEventListener('keydown', handleKeydown)
 }
 
 
@@ -101,10 +101,10 @@ function closeLightbox() {
     body.classList.remove('no-scroll')
 }
 
-function handleKeydown(event) {
-    if (event.key === "ArrowLeft") {
-        showPreviousMedia();
-    } else if (event.key === "ArrowRight") {
-        showNextMedia();
+function handleKeydown(event){
+    if(event.key === "ArrowRight") {
+        showNextMedia()
+    } else if(event.key === "ArrowLeft") {
+        showPreviousMedia()
     }
 }
