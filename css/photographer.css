@@ -280,6 +280,9 @@ form input {
 .fa-chevron-down{
     margin-left: 20px;
 }
+.fa-chevron-down, .fa-chevron-up {
+    cursor: pointer;
+}
 
 .close {
     display: none;

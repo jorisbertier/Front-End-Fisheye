@@ -13,13 +13,15 @@ class MediaCard {
 
         if(this.data.image) {
             mediaSrc = `
-                <img src="/assets/medias/${this.data.image}" class="wrapper__media--img" alt="${title}" role="image" aria-label="Image intitulé ${title}" tabindex="0">
+                <img src="/assets/medias/${this.data.image}" class="wrapper__media--img" alt="${title}"
+                role="image" aria-label="Image intitulé ${title}, appuyer pour ouvrir le carrousel à partir de cette image" tabindex="0">
             `
         }
         else if(this.data.video) {
             mediaSrc =
             `
-            <video class="rounded wrapper__media--img" controls tabindex="-1" width="100%" height="100%" alt="${title}" role="video" aria-label="Vidéo intitulé ${title}" tabindex="0">
+            <video class="rounded wrapper__media--img" controls tabindex="-1" width="100%" height="100%" alt="${title}"
+            role="video" aria-label="Vidéo intitulé ${title}, appuyer pour ouvrir le carrousel à partir de cette vidéo" tabindex="0">
                 <source src="assets/medias/${this.data.video}"  type="video/mp4">
             </video>
             `

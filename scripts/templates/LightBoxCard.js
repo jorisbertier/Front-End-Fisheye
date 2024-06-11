@@ -9,7 +9,7 @@ class LightBox {
         const template = document.createElement('template')
         template.innerHTML = `
             <div class="lightbox-content" role="carrousel" aria-label="${title}">
-                <div class="lightbox-navigation lightbox-navigation-left" role="bouton image précédente du carrousel" tabindex="0">
+                <div class="lightbox-navigation lightbox-navigation-left" aria-label="bouton image précédente du carrousel" tabindex="0">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-left"></i></span>
                 </div>
                 <div class="lightbox-media-container" aria-labelledby="carrousel-titre-média" tabindex="0">
@@ -18,10 +18,10 @@ class LightBox {
                         <source src="" class="video__source"type="video/mp4">
                     </video>
                 </div>
-                <div class="lightbox-navigation lightbox-navigation-right" role="bouton image suivante du carrousel" tabindex="0">
+                <div class="lightbox-navigation lightbox-navigation-right" aria-label="bouton image suivante du carrousel" tabindex="0">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-right"></i></span>
                 </div>
-                <span role="bouton fermer carrousel" class="lightbox-close" tabindex="0"><i class="fa-solid fa-xmark"></i></span>
+                <span aria-label="bouton fermer carrousel" class="lightbox-close" tabindex="0"><i class="fa-solid fa-xmark"></i></span>
             </div>
         `;
         return template.content.cloneNode(true);

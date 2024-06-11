@@ -58,3 +58,27 @@ buttonDate.addEventListener('click', ()=> {
 buttonTitle.addEventListener('click', ()=> {
     reorderButtons(buttonTitle)
 })
+
+
+/* Accesibilty keydown enter open and close dropdown */
+openDropdown.addEventListener('keydown', (event)=> {
+    if(event.key === "Enter") {
+        buttonDate.style.display = "flex";
+        buttonTitle.style.display = "flex";
+        openDropdown.style.display = "none";
+        closeDropdown.style.display = "flex";
+        borderTop.style.display = "block";
+        borderBottom.style.display = "block"
+    }
+})
+
+closeDropdown.addEventListener('keydown', (event)=> {
+    if(event.key === "Enter") {
+        buttonDate.style.display = "none";
+        buttonTitle.style.display = "none";
+        openDropdown.style.display = "flex";
+        closeDropdown.style.display = "none";
+        borderTop.style.display = "none";
+        borderBottom.style.display = "none";
+    }
+})

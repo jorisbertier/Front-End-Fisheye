@@ -53,25 +53,27 @@
     </main>
 
     <div id="wrapper__dropdown">
-      <label class="wrapper__dropdown--label">Trier par</label>
+      <label class="wrapper__dropdown--label" aria-label="Trier par" tabindex="0">Trier par</label>
 
-        <div class="dropdown__menu">
-          <button id="popularity" class="dropdown__menu--popularity" tabindex="0">
-            Popularité <i class="fa-solid fa-chevron-down"></i><i class="fa-solid fa-chevron-up"></i>
+        <div class="dropdown__menu" aria-label="Listes des boutons pour effectuer le tri des médias" tabindex="0">
+          <button id="popularity" class="dropdown__menu--popularity" aria-label="Trier par popularité" tabindex="0">
+            Popularité
+            <i class="fa-solid fa-chevron-down" aria-label="Appuyer pour ouvrir la sélection des tris" tabindex="0"></i>
+            <i class="fa-solid fa-chevron-up" aria-label="Appuyer pour fermer la sélection des tris" tabindex="0"></i>
           </button>
           <span class="border border-top"></span>
-          <button class="dropdown__menu--date" id="date" tabindex="0">
+          <button class="dropdown__menu--date" id="date" tabindex="0" aria-label="Trier par date">
             Date
           </button>
           <span class="border border-bottom"></span>
-          <button class="dropdown__menu--title" id="title" tabindex="0">
+          <button class="dropdown__menu--title" id="title" tabindex="0" aria-label="Trier par titre">
             Titre
           </button>
         </div>
       
       </div>
 
-    <div class="section__media">
+    <div class="section__media" aria-label="Liste des médias">
     </div>
     
     <div id="lightbox_modal" class="lightbox-modal">
