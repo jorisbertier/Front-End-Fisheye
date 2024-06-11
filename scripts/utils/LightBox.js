@@ -100,6 +100,8 @@ function closeLightbox() {
     document.removeEventListener('keydown', handleKeydown);
 }
 
+/* Accesibility keydown right & left carrousel */
+
 function handleKeydown(event) {
     if (event.key === "ArrowRight") {
         showNextMedia();

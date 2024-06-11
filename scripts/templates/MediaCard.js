@@ -45,8 +45,8 @@ class MediaCard {
         const likeIcon = mediaElement.querySelector('.wrapper__media--content--like-icon');
         const likesElement = mediaElement.querySelector('.wrapper__media--content--like--p');
 
+        // Like o dislike at click
         likeIcon.addEventListener('click', () => {
-
             if(!this.hasLiked) {
                 this.likes += 1;
                 this.updateTotalLikesCallback(1);
@@ -62,9 +62,10 @@ class MediaCard {
             likesElement.innerText = this.likes;
         });
 
+        // Accesibility keydown enter like
         likeIcon.addEventListener('keydown', (event) => {
             if (event.key === 'Enter') {
-                // Simuler un clic sur l'icône du cœur
+                // Simulate a click en the icon heart
                 likeIcon.click();
             }
         });
