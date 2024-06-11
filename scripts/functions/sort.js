@@ -15,8 +15,28 @@ export function attachEventListenersSorts(getMediasByPhotographer) {
         getMediasByPhotographer('title');
     });
 
+
     document.getElementById('popularity').addEventListener('click', (event) => {
         if (event.currentTarget === event.target) {
+            getMediasByPhotographer(null);
+        }
+    });
+
+    /* Accesibility keydown enter sort*/
+    document.getElementById('date').addEventListener('keydown', (event) => {
+        if(event.key === "Enter") {
+            getMediasByPhotographer('date');
+        }
+    });
+
+    document.getElementById('title').addEventListener('keydown', (event) => {
+        if(event.key === "Enter") {
+            getMediasByPhotographer('title');
+        }
+    });
+
+    document.getElementById('popularity').addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
             getMediasByPhotographer(null);
         }
     });
