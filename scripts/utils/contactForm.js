@@ -41,7 +41,7 @@ document.getElementById('form').addEventListener('submit', (event)=> {
         <h2>Formulaire de contact envoyé !</h2>
         `
     } else {
-        console.log('Formuaire non envoyé')
+        console.log('Formulaire non envoyé')
     }
 })
 
