@@ -45,12 +45,6 @@ setTimeout(() => {
 setTimeout(() => {
     document.querySelector('.lightbox-navigation-left').addEventListener('click', showPreviousMedia);
     document.querySelector('.lightbox-navigation-right').addEventListener('click', showNextMedia);
-
-    document.querySelector('.lightbox-navigation-left').addEventListener('keydown', (event) => {
-        if (event.key === "ArrowLeft") {
-            showPreviousMedia();
-        }
-    });
     document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
 }, 1000)
 
