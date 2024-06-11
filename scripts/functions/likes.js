@@ -1,6 +1,5 @@
 export function displayTotalLikes(total) {
     let sectionLike = document.querySelector('.wrapper__fixed--like')
-    let like = document.querySelector('.wrapper__fixed--like')
     sectionLike.innerText = total + " ♥";
 
     sectionLike.tabIndex = 0;  // Rendre l'élément focusable

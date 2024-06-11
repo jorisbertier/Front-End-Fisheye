@@ -37,7 +37,7 @@ document.getElementById('form').addEventListener('submit', (event)=> {
 
     if(valid) {
         modalContent.innerHTML = `
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
         <h2>Formulaire de contact envoyé !</h2>
         `
     } else {
@@ -50,3 +50,13 @@ function isValidEmail(email) {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailPattern.test(email);
 }
+
+/* Accesibity keydown */ 
+
+let closeForm = document.querySelector('.close__form')
+
+closeForm.addEventListener('keydown', (event) => {
+    if(event.key === "Enter") {
+        closeModal()
+    }
+})
