@@ -1,56 +1,64 @@
 let mediaUrls = [];
 let mediaUrl;
 let currentMediaIndex = 0;
-let medias
+let medias;
 
 function displaylightBox() {
     const lightbox = document.getElementById('lightbox_modal');
     lightbox.style.display = 'flex';
     body.classList.add('no-scroll');
 
-    document.addEventListener('keydown', handleKeydown)
+    document.addEventListener('keydown', handleKeydown);
 }
 
-
 document.addEventListener('DOMContentLoaded', async function() {
-setTimeout(() => {
-    
-    let htmlCollection = document.getElementsByClassName('wrapper__media--img');
-    
-    medias = Array.from(htmlCollection);
+    setTimeout(() => {
+        let htmlCollection = document.getElementsByClassName('wrapper__media--img');
+        medias = Array.from(htmlCollection);
 
-    medias.forEach((media) => {
-        if (media.tagName === 'IMG') {
-            mediaUrls.push(media.src);
-        } else if (media.tagName === 'VIDEO') {
-            mediaUrls.push(media.querySelector('source').src);
-        }
-
-        media.addEventListener('click', () => {
+        medias.forEach((media) => {
             if (media.tagName === 'IMG') {
-                mediaUrl = media.src;
+                mediaUrls.push(media.src);
             } else if (media.tagName === 'VIDEO') {
-                mediaUrl = media.querySelector('source').src;
+                mediaUrls.push(media.querySelector('source').src);
             }
 
-            currentMediaIndex = mediaUrls.indexOf(mediaUrl);
+            media.addEventListener('click', () => {
+                openLightboxWithMedia(media);
+            });
 
-            updateLightboxMedia(mediaUrl);
-
-            displaylightBox();
+            // Ajouter un écouteur d'événement pour la touche Entrée
+            media.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    openLightboxWithMedia(media);
+                }
+            });
+            console.log(media)
+            // Rendre les éléments focusables
+            media.tabIndex = 0;
         });
-        });
+    }, 1000);
 
-}, 1000)
-setTimeout(() => {
-    document.querySelector('.lightbox-navigation-left').addEventListener('click', showPreviousMedia);
-    document.querySelector('.lightbox-navigation-right').addEventListener('click', showNextMedia);
-    document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-}, 1000)
-// test
+    setTimeout(() => {
+        document.querySelector('.lightbox-navigation-left').addEventListener('click', showPreviousMedia);
+        document.querySelector('.lightbox-navigation-right').addEventListener('click', showNextMedia);
+        document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    }, 1000);
 });
 
-const body = document.querySelector('body')
+const body = document.querySelector('body');
+
+function openLightboxWithMedia(media) {
+    if (media.tagName === 'IMG') {
+        mediaUrl = media.src;
+    } else if (media.tagName === 'VIDEO') {
+        mediaUrl = media.querySelector('source').src;
+    }
+
+    currentMediaIndex = mediaUrls.indexOf(mediaUrl);
+    updateLightboxMedia(mediaUrl);
+    displaylightBox();
+}
 
 function updateLightboxMedia(mediaUrl) {
     const imgElement = document.querySelector('.lightbox-media');
@@ -71,34 +79,27 @@ function updateLightboxMedia(mediaUrl) {
 
 function showPreviousMedia() {
     currentMediaIndex = (currentMediaIndex - 1 + mediaUrls.length) % mediaUrls.length;
-    // if (currentMediaIndex === 0) {
-    //     currentMediaIndex = mediaUrls.length - 1;
-    // } else {
-    //     currentMediaIndex--;
-    // }
     const previousMediaUrl = mediaUrls[currentMediaIndex];
     updateLightboxMedia(previousMediaUrl);
 }
 
 function showNextMedia() {
     currentMediaIndex = (currentMediaIndex + 1) % mediaUrls.length;
-    // currentMediaIndex++;
-    // if(currentMediaIndex >= mediaUrls.length) {
-    //     currentMediaIndex = 0;
-    // }
     const nextMediaUrl = mediaUrls[currentMediaIndex];
     updateLightboxMedia(nextMediaUrl);
 }
 
 function closeLightbox() {
     document.getElementById('lightbox_modal').style.display = 'none';
-    body.classList.remove('no-scroll')
+    body.classList.remove('no-scroll');
+
+    document.removeEventListener('keydown', handleKeydown);
 }
 
-function handleKeydown(event){
-    if(event.key === "ArrowRight") {
-        showNextMedia()
-    } else if(event.key === "ArrowLeft") {
-        showPreviousMedia()
+function handleKeydown(event) {
+    if (event.key === "ArrowRight") {
+        showNextMedia();
+    } else if (event.key === "ArrowLeft") {
+        showPreviousMedia();
     }
 }
