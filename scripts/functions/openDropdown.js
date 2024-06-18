@@ -1,3 +1,4 @@
+// Selection elements of DOM
 let openDropdown = document.querySelector('.fa-chevron-down')
 let closeDropdown = document.querySelector('.fa-chevron-up')
 
@@ -8,6 +9,7 @@ let borderTop = document.querySelector('.border-top');
 let borderBottom = document.querySelector('.border-bottom');
 
 
+// Function for open the dropdown
 openDropdown.addEventListener('click', ()=> {
     buttonDate.style.display = "flex";
     buttonTitle.style.display = "flex";
@@ -17,6 +19,7 @@ openDropdown.addEventListener('click', ()=> {
     borderBottom.style.display = "block";
 })
 
+// Function for close the dropdown
 closeDropdown.addEventListener('click', ()=> {
     buttonDate.style.display = "none";
     buttonTitle.style.display = "none";
@@ -26,27 +29,34 @@ closeDropdown.addEventListener('click', ()=> {
     borderBottom.style.display = "none";
 })
 
+// Function for reoder buttons & insert border for style
 function reorderButtons(clickedButton) {
     let wrapperButton = document.querySelector('.dropdown__menu')
-    
+
+     // Delete borders existing
     let existingBorderTop = wrapperButton.querySelector('.border-top');
     let existingBorderBottom = wrapperButton.querySelector('.border-bottom');
+
     if (existingBorderTop) {
         existingBorderTop.remove();
     }
     if (existingBorderBottom) {
         existingBorderBottom.remove();
     }
+
+    // Insert button first position
     wrapperButton.insertBefore(clickedButton, wrapperButton.firstChild)
     clickedButton.appendChild(closeDropdown)
 
     let secondButton = wrapperButton.children[1];
     
+    // Re insert border before & after second button
     wrapperButton.insertBefore(borderTop, secondButton);
     wrapperButton.insertBefore(borderBottom, secondButton.nextSibling);
 
 }
 
+// Add event listener for each button
 buttonPopularity.addEventListener('click', ()=> {
     reorderButtons(buttonPopularity)
 })

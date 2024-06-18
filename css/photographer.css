@@ -109,10 +109,25 @@ select {
     top: 547px;
     left: 545px;
     gap: 0px;
-    opacity: 0px;
+    opacity: 1;
     object-fit: cover;
     border-radius: 7px;
     cursor: pointer;
+    transform-origin: top left;
+    /* animation: apparitionMedia 1s ease-in-out forwards; */
+}
+
+/* @keyframes apparitionMedia {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} */
+
+.no-animation {
+    animation: none !important;
 }
 
 .wrapper__media--content {
@@ -193,6 +208,14 @@ select {
     z-index: 10;
     height: 80%;
     margin-top: 2%;
+    position: relative;
+}
+
+.closeForm {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
 }
 
 .modal header {
@@ -305,6 +328,11 @@ form input {
     width: 180px;
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+}
+
+.dropdown__menu:hover {
+    cursor: pointer;
 }
 
 .dropdown__menu {
@@ -316,6 +344,7 @@ form input {
     width: 200px;
     position: absolute;
     left: 10%;
+    z-index: 8;
 }
 
 .border-top{

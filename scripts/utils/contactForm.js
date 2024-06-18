@@ -22,7 +22,6 @@ document.getElementById('form').addEventListener('submit', (event)=> {
     for(let input of form.querySelectorAll('input[data-validation]')) {
         if (!input.checkValidity()) {
             valid = false;
-
             console.log('Champ invalide:', input.name);
             break;
         }
@@ -37,9 +36,10 @@ document.getElementById('form').addEventListener('submit', (event)=> {
 
     if(valid) {
         modalContent.innerHTML = `
-        <img src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
+        <img class="closeForm" src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
         <h2>Formulaire de contact envoyé !</h2>
         `
+        console.log('Formulaire envoyé')
     } else {
         console.log('Formulaire non envoyé')
     }

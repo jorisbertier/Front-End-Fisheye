@@ -7,7 +7,6 @@ export function displayTotalLikes(total) {
         if (event.key === 'Enter' && document.activeElement === sectionLike) {
             total += 1;
             sectionLike.innerText = total + " ♥";
-            console.log('like')
         }
     });
 

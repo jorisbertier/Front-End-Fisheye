@@ -12,6 +12,7 @@ let search_params = url.searchParams;
 
 // get value of "id" parameter
 const idPhotographer = parseInt(search_params.get('id'), 10)
+console.log(idPhotographer)
 
 
 // get allPhotographers
@@ -64,7 +65,7 @@ async function getMediasByPhotographer(sortBy = null) {
     const section = document.querySelector('.section__media');
     section.innerHTML = '';
 
-    // ne s adittionne pas 
+    // Prevent add total
     totalLikes = 0;
 
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
@@ -77,12 +78,12 @@ async function getMediasByPhotographer(sortBy = null) {
     
     if (sortBy === 'date') {
         allMediasByPhotographer = sortMediasByDate(allMediasByPhotographer);
-        console.log('Medias sorted by date:', allMediasByPhotographer);
+        // console.log('Medias sorted by date:', allMediasByPhotographer);
     }
 
     if (sortBy === 'title') {
         allMediasByPhotographer = sortMediasByTitle(allMediasByPhotographer);
-        console.log('Medias sorted by title:', allMediasByPhotographer);
+        // console.log('Medias sorted by title:', allMediasByPhotographer);
     }
 
     const updateTotalLikesCallback = (likesToAdd) => {
@@ -109,7 +110,11 @@ async function getMediasByPhotographer(sortBy = null) {
 });
 displayTotalLikes(totalLikes)    
 }
-attachEventListenersSorts(getMediasByPhotographer)
 
-getMediasByPhotographer()
-getPhotographerByid()
+function init() {
+    attachEventListenersSorts(getMediasByPhotographer)
+    getMediasByPhotographer()
+    getPhotographerByid()
+}
+
+init()
