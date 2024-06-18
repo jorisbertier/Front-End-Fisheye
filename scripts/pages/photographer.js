@@ -68,6 +68,7 @@ async function getMediasByPhotographer(sortBy = null) {
     // Prevent add total
     totalLikes = 0;
 
+    // Filter media for get photographer by the id
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
 
     // Create LightBox modal for each media
@@ -78,14 +79,13 @@ async function getMediasByPhotographer(sortBy = null) {
     
     if (sortBy === 'date') {
         allMediasByPhotographer = sortMediasByDate(allMediasByPhotographer);
-        // console.log('Medias sorted by date:', allMediasByPhotographer);
     }
 
     if (sortBy === 'title') {
         allMediasByPhotographer = sortMediasByTitle(allMediasByPhotographer);
-        // console.log('Medias sorted by title:', allMediasByPhotographer);
     }
 
+    // Function callback for update total like
     const updateTotalLikesCallback = (likesToAdd) => {
         totalLikes += likesToAdd;
         displayTotalLikes(totalLikes);
@@ -96,6 +96,7 @@ async function getMediasByPhotographer(sortBy = null) {
         let mediaCard;
         totalLikes += media.likes
 
+        // Create Card by type of media image or video
         if(media.image) {
             mediaCard = new MediaCard(media, 'image', updateTotalLikesCallback)
         } else if(media.video) {
@@ -104,10 +105,12 @@ async function getMediasByPhotographer(sortBy = null) {
             throw 'Unknown type format'
         }
 
+        // Create Element DOM and add to the DOM
         const mediaCardDOMmedia = mediaCard.createCardMedia()
         section.appendChild(mediaCardDOMmedia)
 
 });
+// Display total like
 displayTotalLikes(totalLikes)    
 }
 

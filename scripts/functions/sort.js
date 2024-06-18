@@ -6,41 +6,6 @@ export function sortMediasByTitle(medias) {
     return medias.sort((a, b)=>  a.title.localeCompare(b.title));
 }
 
-// export function attachEventListenersSorts(getMediasByPhotographer) {
-//     document.getElementById('date').addEventListener('click', () => {
-//         getMediasByPhotographer('date');
-//     });
-
-//     document.getElementById('title').addEventListener('click', () => {
-//         getMediasByPhotographer('title');
-//     });
-
-
-//     document.getElementById('popularity').addEventListener('click', (event) => {
-//         if (event.currentTarget === event.target) {
-//             getMediasByPhotographer(null);
-//         }
-//     });
-
-//     /* Accesibility keydown enter sort*/
-//     document.getElementById('date').addEventListener('keydown', (event) => {
-//         if(event.key === "Enter") {
-//             getMediasByPhotographer('date');
-//         }
-//     });
-
-//     document.getElementById('title').addEventListener('keydown', (event) => {
-//         if(event.key === "Enter") {
-//             getMediasByPhotographer('title');
-//         }
-//     });
-
-//     document.getElementById('popularity').addEventListener('keydown', (event) => {
-//         if (event.key === 'Enter') {
-//             getMediasByPhotographer(null);
-//         }
-//     });
-// }
 
 function addEventListenerToButton(buttonId, action) {
     const button = document.getElementById(buttonId);
@@ -54,9 +19,11 @@ function addEventListenerToButton(buttonId, action) {
     });
 }
 
+// Function to attach event listeners to sort buttons
 export function attachEventListenersSorts(getMediasByPhotographer) {
+    // add event listener by date
     addEventListenerToButton('date', () => {
-        getMediasByPhotographer('date');
+        getMediasByPhotographer('date'); // Call getMediasByPhotographer with the 'date' parameter
     });
 
     addEventListenerToButton('title', () => {

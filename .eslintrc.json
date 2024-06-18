@@ -9,3 +9,9 @@
         "sourceType": "module"
     }
 }
+
+// extends: Utilise la configuration recommandée d'ESLint.
+// rules: Personnalise les règles d'ESLint
+// no-extra-semi et no-useless-escape sont désactivées
+// no-console est activée avec un niveau d'erreur
+// parserOptions: Spécifie que le code source utilise les modules ES6

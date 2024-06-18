@@ -29,7 +29,7 @@ closeDropdown.addEventListener('click', ()=> {
     borderBottom.style.display = "none";
 })
 
-// Function for reoder buttons & insert border for style
+// Function for reorder buttons & insert border for style
 function reorderButtons(clickedButton) {
     let wrapperButton = document.querySelector('.dropdown__menu')
 

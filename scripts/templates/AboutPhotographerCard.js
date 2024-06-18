@@ -5,6 +5,8 @@ class AboutPhotographerCard {
 
     createCard() {
         const { name, portrait, city, country, tagline } = this.data;
+
+        // Create element template element in a fragmented document that is not displayed directly in the DOM
         let template = document.createElement('template');
         template.innerHTML = `
         <div class="main__content" aria-labelledby="photographer-informations" tabindex="0">
@@ -19,6 +21,7 @@ class AboutPhotographerCard {
             <img src="/assets/photographers/${portrait}" alt="Image de profile de ${name}" class="main__picture--img"/>
         </div>
         `
+        // reference at the content at the template and clone content
         return template.content.cloneNode(true);
     }
 }
