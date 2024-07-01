@@ -55,10 +55,8 @@ function isValidEmail(email) {
 
 /* Accesibity keydown */ 
 
-let closeForm = document.querySelector('.close__form')
-
-closeForm.addEventListener('keydown', (event) => {
-    if(event.key === "Enter") {
+document.addEventListener('keydown', (event) => {
+    if(event.key === "Escape") {
         closeModal()
     }
 })
