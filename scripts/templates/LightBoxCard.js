@@ -9,7 +9,7 @@ class LightBox {
 
         const template = document.createElement('template')
         template.innerHTML = `
-            <div class="lightbox-content" role="carrousel" aria-label="${title}">
+            <div class="lightbox-content" role="carrousel" aria-label="${title} relative">
                 <div class="lightbox-navigation lightbox-navigation-left" aria-label="bouton image précédente du carrousel" tabindex="0">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-left"></i></span>
                 </div>
@@ -19,7 +19,7 @@ class LightBox {
                         <source src="" class="video__source"type="video/mp4">
                     </video>
                 </div>
-                <div class="lightbox-title"></div>
+                <div class="lightbox-title absolute"></div>
                 <div class="lightbox-navigation lightbox-navigation-right" aria-label="bouton image suivante du carrousel" tabindex="0">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-right"></i></span>
                 </div>

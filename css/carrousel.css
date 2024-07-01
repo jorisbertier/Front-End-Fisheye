@@ -69,11 +69,20 @@
     height: auto;
     width: auto;
     max-width: 100%;
-    max-height: 100%;
+    max-height: 99%;
     margin: auto;
     display: block;
     border-radius: 5px;
     object-fit: contain;
+}
+
+.lightbox-title {
+    display: flex;
+    font-family: DM Sans;
+    font-size: 24px;
+    font-weight: 400;
+    color: #901C1C;
+    margin-top: -20px;
 }
 
 .wrapper__media--video {
