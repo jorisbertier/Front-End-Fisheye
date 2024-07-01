@@ -6,6 +6,11 @@ export function sortMediasByTitle(medias) {
     return medias.sort((a, b)=>  a.title.localeCompare(b.title));
 }
 
+export function sortMediasByPopularity(medias) {
+    // return medias.sort((a, b)=>  a.title.localeCompare(b.title));
+    return medias.sort((a, b) => b.likes - a.likes)
+}
+
 
 function addEventListenerToButton(buttonId, action) {
     const button = document.getElementById(buttonId);
@@ -31,6 +36,6 @@ export function attachEventListenersSorts(getMediasByPhotographer) {
     });
 
     addEventListenerToButton('popularity', () => {
-        getMediasByPhotographer(null);
+        getMediasByPhotographer('popularity');
     });
 }

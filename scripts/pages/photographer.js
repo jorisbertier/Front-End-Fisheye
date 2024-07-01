@@ -2,7 +2,7 @@ import { MediaCard } from "../templates/MediaCard.js";
 import { AboutPhotographerCard } from '../templates/AboutPhotographerCard.js'
 import { LightBox } from "../templates/LightBoxCard.js";
 import { displayTotalLikes } from '../functions/likes.js'
-import { sortMediasByDate, sortMediasByTitle, attachEventListenersSorts } from '../functions/sort.js'
+import { sortMediasByDate, sortMediasByTitle, sortMediasByPopularity, attachEventListenersSorts } from '../functions/sort.js'
 
 // given url string
 
@@ -88,6 +88,10 @@ async function getMediasByPhotographer(sortBy = null) {
 
     if (sortBy === 'title') {
         allMediasByPhotographer = sortMediasByTitle(allMediasByPhotographer);
+    }
+
+    if (sortBy === 'popularity') {
+        allMediasByPhotographer = sortMediasByPopularity(allMediasByPhotographer);
     }
 
     // Function callback for update total like
