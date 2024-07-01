@@ -5,14 +5,18 @@ import { displayTotalLikes } from '../functions/likes.js'
 import { sortMediasByDate, sortMediasByTitle, attachEventListenersSorts } from '../functions/sort.js'
 
 // given url string
+
 // get url string current
 var url_str = document.URL; 
+
+// cretae new object URL 
 let url = new URL(url_str);
+
+// Get query parameters from URL
 let search_params = url.searchParams; 
 
-// get value of "id" parameter
+// get value of "id" parameter & convert to integer
 const idPhotographer = parseInt(search_params.get('id'), 10)
-console.log(idPhotographer)
 
 
 // get allPhotographers
@@ -45,6 +49,7 @@ async function getMedias() {
 // get photographer by id
 async function getPhotographerByid() {
     const { photographers } = await getPhotographers();
+    // Find the first photographer in the table id match with idPhotographer
     let photographer = photographers.find((photographer) => photographer.id === idPhotographer)
 
     const section = document.querySelector('#main');
