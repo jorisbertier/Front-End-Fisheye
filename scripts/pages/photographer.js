@@ -78,7 +78,7 @@ async function getMediasByPhotographer(sortBy = null) {
 
     // Create LightBox modal for each media
     let sectionModal = document.querySelector('#lightbox_modal')
-    const lightBox = new LightBox(medias);
+    const lightBox = new LightBox(allMediasByPhotographer);
     const aboutPhotogarpherCardDOM = lightBox.createLightBox()
     sectionModal.appendChild(aboutPhotogarpherCardDOM)
     

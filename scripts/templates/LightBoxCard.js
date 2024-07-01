@@ -5,6 +5,7 @@ class LightBox {
 
     createLightBox() {
         const { title } = this.data;
+        console.log('Title:', title);
 
         const template = document.createElement('template')
         template.innerHTML = `
@@ -18,6 +19,7 @@ class LightBox {
                         <source src="" class="video__source"type="video/mp4">
                     </video>
                 </div>
+                <div class="lightbox-title"></div>
                 <div class="lightbox-navigation lightbox-navigation-right" aria-label="bouton image suivante du carrousel" tabindex="0">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-right"></i></span>
                 </div>
