@@ -46,8 +46,8 @@ document.addEventListener('DOMContentLoaded', async function() {
         document.querySelector('.lightbox-navigation-left').addEventListener('click', showPreviousMedia);
         document.querySelector('.lightbox-navigation-right').addEventListener('click', showNextMedia);
         document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-        document.querySelector('.lightbox-close').addEventListener('keydown', (event)=> {
-            if(event.key === "Enter") {
+        document.addEventListener('keydown', (event)=> {
+            if(event.key === "Escape") {
                 closeLightbox()
             }
     });
