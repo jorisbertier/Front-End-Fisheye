@@ -39,7 +39,9 @@ document.getElementById('form').addEventListener('submit', (event)=> {
         <img class="closeForm" src="assets/icons/close.svg" onclick="closeModal()" alt="Fermer le formulaire" />
         <h2>Formulaire de contact envoyé !</h2>
         `
-        console.log('Formulaire envoyé')
+        for (let input of form.querySelectorAll('input, textarea')) {
+            console.log(`Champ ${input.name}: ${input.value}`);
+        }
     } else {
         console.log('Formulaire non envoyé')
     }
