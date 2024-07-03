@@ -5,10 +5,14 @@ class LightBox {
 
     createLightBox() {
         const { title } = this.data;
-        console.log('Title:', title);
+        const $wrapper = document.createElement("div");
+        $wrapper.style.height = '100vh';
+        $wrapper.style.width = '100vw';
+        $wrapper.style.display = 'flex';
+        $wrapper.style.justifyContent = 'center';
+        $wrapper.style.alignItems = 'center';
 
-        const template = document.createElement('template')
-        template.innerHTML = `
+        const lightBox = `
             <div class="lightbox-content" role="carrousel" aria-label="${title} relative">
                 <div class="lightbox-navigation lightbox-navigation-left" aria-label="bouton image précédente du carrousel" tabindex="0">
                     <span class="lightbox-arrow"><i class="fa-solid fa-angle-left"></i></span>
@@ -26,7 +30,8 @@ class LightBox {
                 <span aria-label="bouton fermer carrousel" class="lightbox-close" tabindex="0"><i class="fa-solid fa-xmark"></i></span>
             </div>
         `;
-        return template.content.cloneNode(true);
+        $wrapper.innerHTML = lightBox;
+        return $wrapper;
     }
 
     changeImage(index) {

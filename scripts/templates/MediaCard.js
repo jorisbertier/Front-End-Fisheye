@@ -10,6 +10,7 @@ class MediaCard {
     createCardMedia() {
         const { title } = this.data
         let mediaSrc;
+        const $wrapper = document.createElement("div");
 
         if(this.data.image) {
             mediaSrc = `
@@ -27,8 +28,7 @@ class MediaCard {
             `
         }
 
-        const template = document.createElement('template')
-        template.innerHTML = `
+        const mediaCard = `
             <article class="wrapper__media" role="article">
                 
                 ${mediaSrc}
@@ -41,11 +41,11 @@ class MediaCard {
                 </div>
             </article>
         `
+        $wrapper.innerHTML = mediaCard;
+        // const mediaElement = template.content.cloneNode(true);
 
-        const mediaElement = template.content.cloneNode(true);
-
-        const likeIcon = mediaElement.querySelector('.wrapper__media--content--like-icon');
-        const likesElement = mediaElement.querySelector('.wrapper__media--content--like--p');
+        const likeIcon = $wrapper.querySelector('.wrapper__media--content--like-icon');
+        const likesElement = $wrapper.querySelector('.wrapper__media--content--like--p');
 
         // Like o dislike at click
         likeIcon.addEventListener('click', () => {
@@ -73,7 +73,7 @@ class MediaCard {
         });
 
 
-        return mediaElement;
+        return $wrapper;
     }
 }
 
