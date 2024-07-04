@@ -3,6 +3,7 @@ import { AboutPhotographerCard } from '../templates/AboutPhotographerCard.js'
 import { LightBox } from "../templates/LightBoxCard.js";
 import { displayTotalLikes } from '../functions/likes.js'
 import { sortMediasByDate, sortMediasByTitle, sortMediasByPopularity, attachEventListenersSorts } from '../functions/sort.js'
+import { initializeMediaEvents, updateMediaArrays  } from "../utils/LightBox.js";
 
 // given url string
 
@@ -63,6 +64,7 @@ async function getPhotographerByid() {
 }
 
 let totalLikes = 0;
+let lightBox = null;
 
 async function getMediasByPhotographer(sortBy = null) {
     const { medias } = await getMedias();
@@ -70,57 +72,53 @@ async function getMediasByPhotographer(sortBy = null) {
     const section = document.querySelector('.section__media');
     section.innerHTML = '';
 
-    // Prevent add total
     totalLikes = 0;
-
-    // Filter media for get photographer by the id
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
 
-    // Create LightBox modal for each media
-    let sectionModal = document.querySelector('#lightbox_modal')
-    const lightBox = new LightBox(allMediasByPhotographer);
-    const aboutPhotogarpherCardDOM = lightBox.createLightBox()
-    sectionModal.appendChild(aboutPhotogarpherCardDOM)
-    
     if (sortBy === 'date') {
         allMediasByPhotographer = sortMediasByDate(allMediasByPhotographer);
     }
-
     if (sortBy === 'title') {
         allMediasByPhotographer = sortMediasByTitle(allMediasByPhotographer);
     }
-
     if (sortBy === 'popularity') {
         allMediasByPhotographer = sortMediasByPopularity(allMediasByPhotographer);
     }
 
-    // Function callback for update total like
+    if (!lightBox) {
+        const sectionModal = document.querySelector('#lightbox_modal');
+        lightBox = new LightBox(allMediasByPhotographer);
+        const aboutPhotogarpherCardDOM = lightBox.createLightBox();
+        sectionModal.appendChild(aboutPhotogarpherCardDOM);
+    } else {
+        lightBox.updateLightboxWithSortedMedias(allMediasByPhotographer);
+    }
+
     const updateTotalLikesCallback = (likesToAdd) => {
         totalLikes += likesToAdd;
         displayTotalLikes(totalLikes);
     };
 
     allMediasByPhotographer.forEach((media) => {
-        const section = document.querySelector('.section__media')
+        const section = document.querySelector('.section__media');
         let mediaCard;
-        totalLikes += media.likes
+        totalLikes += media.likes;
 
-        // Create Card by type of media image or video
-        if(media.image) {
-            mediaCard = new MediaCard(media, 'image', updateTotalLikesCallback)
-        } else if(media.video) {
-            mediaCard = new MediaCard(media, 'video', updateTotalLikesCallback)
+        if (media.image) {
+            mediaCard = new MediaCard(media, 'image', updateTotalLikesCallback);
+        } else if (media.video) {
+            mediaCard = new MediaCard(media, 'video', updateTotalLikesCallback);
         } else {
-            throw 'Unknown type format'
+            throw 'Unknown type format';
         }
 
-        // Create Element DOM and add to the DOM
-        const mediaCardDOMmedia = mediaCard.createCardMedia()
-        section.appendChild(mediaCardDOMmedia)
+        const mediaCardDOMmedia = mediaCard.createCardMedia();
+        section.appendChild(mediaCardDOMmedia);
+    });
 
-});
-// Display total like
-displayTotalLikes(totalLikes)    
+    displayTotalLikes(totalLikes);
+    updateMediaArrays(allMediasByPhotographer);
+    initializeMediaEvents();
 }
 
 function init() {

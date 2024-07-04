@@ -42,6 +42,14 @@ class LightBox {
         // Affichez la nouvelle image (ou vidéo)
         this.mediaElements[this.currentIndex].classList.add('show');
     }
+    updateMedia(medias) {
+        this.medias = medias;
+    }
+
+    updateLightboxWithSortedMedias(medias) {
+        this.updateMedia(medias);
+        this.currentIndex = 0;
+    }
 }
 
 export { LightBox }
