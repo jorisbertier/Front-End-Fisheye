@@ -63,6 +63,7 @@ async function getPhotographerByid() {
     price.innerText = `${photographer.price}€ / jour`
 }
 
+
 let totalLikes = 0;
 let lightBox = null;
 
@@ -74,6 +75,8 @@ async function getMediasByPhotographer(sortBy = null) {
 
     totalLikes = 0;
     let allMediasByPhotographer = medias.filter((media) => media.photographerId === idPhotographer);
+
+    sortMediasByPopularity(allMediasByPhotographer);
 
     if (sortBy === 'date') {
         allMediasByPhotographer = sortMediasByDate(allMediasByPhotographer);
